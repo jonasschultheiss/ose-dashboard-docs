@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the LaTeX template of Jonas Schultheiss. It'll be used for the IPA and VA.
+% 
+% This template can be downloaded here:
+% https://github.com/
+% 
+% This template is heavily inspired by Marco Roth's template:
+% https://github.com/marcoroth
+%
+% Template license:
+% MIT
+% https://github.com/jonasschultheiss/LaTeX-Template/blob/master/LICENSE
+% ./LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Document & Variables
+%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt, oneside]{scrbook}
+
+\newcommand{\version}{0.0.1}
+\newcommand{\docdate}{\today}
+\newcommand{\docname}{OSE Dashboard}
+\newcommand{\compiledfilename}{ipa\_jsc\_ose\_2021.pdf}
+\newcommand{\task}{Individuelle praktische Arbeit} % e.g. Modul 152/IPA/...
+\newcommand{\taskname}{3D Web Anwendung des OSE Modells für die Produktion vorbereiten}
+\newcommand{\clientlogopath}{./images/eh-logo.png}
+\newcommand{\kandidat}{Jonas Schultheiss}
+\newcommand{\fachkraft}{Markus Strittmatter}
+\newcommand{\hauptexperte}{Matthias Meier}
+\newcommand{\nebenexperte}{Jens Schwyn Aerni}
+\newcommand{\docauthor}{\kandidat}
+
+%%%%%%%%%%
+% Packages
+%%%%%%%%%%
+
+\usepackage[
+  a4paper,
+  left=25mm,
+  right=25mm,
+  top=35mm,
+  bottom=35mm,
+  headheight=35mm
+]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[babel,german=swiss]{csquotes}
+\usepackage[ngerman]{babel}
+\usepackage[printonlyused]{acronym}
+\usepackage[section]{placeins}
+\usepackage[Conny]{fncychap}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{helvet}
+\usepackage{lastpage}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{pdfpages}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{tocloft}
+\usepackage{xurl}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{suffix}
+\usepackage{float}
+
+%%%%%%%%
+% Colors
+%%%%%%%%
+
+\definecolor{lightgray}{RGB}{224,224,224}
+\definecolor{darkgray}{RGB}{192,192,192}
+
+\renewcommand{\listfigurename}{List of figures}
+
+
+%%%%%%%%%%%%%%%%%%%
+% Headers & Footers
+%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\renewcommand{\chapterpagestyle}{fancy}
+\renewcommand{\partpagestyle}{fancy}
+\fancyhead{}
+\fancyhead[R]{\fontsize{10}{12} \selectfont \textbf{\task} \\ \fontsize{8}{10} \selectfont \taskname \\ Kandidat: \docauthor}
+\fancyhead[L]{\includegraphics[width=6cm]{\clientlogopath}}
+\fancyfoot{}
+\fancyfoot[L]{\fontsize{10}{11} \selectfont \compiledfilename}
+\fancyfoot[C]{\fontsize{9}{11} \docdate}
+\fancyfoot[R]{\fontsize{10}{11} \selectfont Seite \thepage\ von \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0pt}
+
+%%%%%%
+% Font
+%%%%%%
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%%%%%
+% TOC
+%%%%%
+
+\renewcommand{\cftchapafterpnum}{\vspace{5pt}}
+
+%%%%%
+% LOF
+%%%%%
+
+\captionsetup{justification=centering}
+
+%%%%%%%%%%
+% Graphics
+%%%%%%%%%%
+
+\setcounter{totalnumber}{5}
+\ChNumVar{\Huge}
+\ChTitleVar{\huge\sffamily}
+\ChNameVar{\large\sffamily}
+\ChRuleWidth{0.5pt}
+
+%%%%%%%%%%%%%%
+% Line spacing
+%%%%%%%%%%%%%%
+
+\renewcommand{\baselinestretch}{1,3}
+
+%%%%%%%%%%%%%%%%
+% PDF formatting
+%%%%%%%%%%%%%%%%
+
+\definecolor{codegray}{gray}{0.9}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+\usepackage[
+  bookmarks=true,           % Lesezeichen erzeugen
+  bookmarksopen=true,       % Lesezeichen ausgeklappt
+  bookmarksnumbered=true,   % Anzeige der Kapitelzahlen
+  breaklinks=true,          % Ermöglicht einen Umbruch von URLs
+  colorlinks=true,          % Einfärbung von Links
+  linkcolor=black,          % Linkfarbe: schwarz
+  anchorcolor=black,        % Ankerfarbe: schwarz
+  citecolor=black,          % Literaturlinks: schwarz
+  filecolor=black,          % Links zu lokalen Dateien: schwarz
+  menucolor=black,          % Acrobat Menü Einträge: schwarz
+  urlcolor=black,           % URL-Farbe: schwarz
+  pdftitle={OSEDashboard},
+  pdfauthor={Jonas Schultheiss},
+  pdfsubject={OSEDashboard},
+  pdfkeywords={OSE, OSEDashboard, Dashboard, ipa, jonas, schultheiss}
+]{hyperref}
+
+%%%%%%%%%%%%%%
+% Reset indent
+%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%
+% Columns
+%%%%%%%%%
+
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+
+%%%%%%%%%%%%%
+% Titel fonts
+%%%%%%%%%%%%%
+
+\newcommand{\titlesize}{\fontsize{25pt}{20pt}\selectfont}
+\newcommand{\subtitlesize}{\fontsize{15pt}{10pt}\selectfont}
+\newcommand{\subsubtitlesize}{\fontsize{10pt}{5pt}\selectfont}

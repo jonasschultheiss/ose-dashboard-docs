@@ -1,0 +1,16 @@
+name: PDF
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: LaTeX Compile - Schlussbericht
+        uses: xu-cheng/latex-action@1.2.1
+        with:
+          working_directory: ./
+          root_file: OSEDashboard_Dokumentation.tex
+      - uses: actions/upload-artifact@v1
+        with:
+          name: OSEDashboard_Dokumentation
+          path: OSEDashboard_Dokumentation.pdf
