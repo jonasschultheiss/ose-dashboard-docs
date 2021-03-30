@@ -2179,8 +2179,12 @@
   <!-- CITATION DATA -->
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex">quellen.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1">apple_2021_mit</bcf:citekey>
+    <bcf:citekey order="2">a2021_hardware</bcf:citekey>
+    <bcf:citekey order="3">a2021_keep</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

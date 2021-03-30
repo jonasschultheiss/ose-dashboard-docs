@@ -79,5 +79,8 @@
     <requires type="dynamic">
       <file>ipa_jsc_ose_2021.bcf</file>
     </requires>
+    <requires type="editable">
+      <file>quellen.bib</file>
+    </requires>
   </external>
 </requests>

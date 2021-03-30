@@ -1,0 +1,98 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{apple_2021_mit}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9f6290f4436e5a2351f12e03b6433c3c}{%
+           family={Apple},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Apple Support}%
+      }
+      \strng{namehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{fullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{bibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorbibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authornamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorfullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Mit Time Machine ein Backup eines Mac erstellen}
+      \field{urlday}{30}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://support.apple.com/de-ch/HT201250
+      \endverb
+      \verb{url}
+      \verb https://support.apple.com/de-ch/HT201250
+      \endverb
+    \endentry
+    \entry{a2021_hardware}{online}{}
+      \list{organization}{1}{%
+        {Apple Support}%
+      }
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labeltitlesource}{title}
+      \field{title}{Hardware security overview}
+      \field{urlday}{30}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://support.apple.com/en-gb/guide/security/secf020d1074/web
+      \endverb
+      \verb{url}
+      \verb https://support.apple.com/en-gb/guide/security/secf020d1074/web
+      \endverb
+    \endentry
+    \entry{a2021_keep}{online}{}
+      \list{organization}{1}{%
+        {Apple Support}%
+      }
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labeltitlesource}{title}
+      \field{title}{Keep your Time Machine backup disk for Mac secure}
+      \field{urlday}{30}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://support.apple.com/en-gb/guide/mac-help/mh21241/mac
+      \endverb
+      \verb{url}
+      \verb https://support.apple.com/en-gb/guide/mac-help/mh21241/mac
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
