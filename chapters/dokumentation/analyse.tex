@@ -32,7 +32,7 @@ Netilion Connect ist ein relativ neues Angebot des Ökosystems. Grosse Kunden wo
   \centering
   \includegraphics[width=.95\linewidth]{./images/backend.png}
   \caption[{Diagram OSE-Dashboard Backend von Jonas Schultheiss}]{OSE-Dashboard Backend}
-  \label{fig:frontend}
+  \label{fig:backend}
 \end{figure}
 Die Aufgabe des Backends war primär das cachen der Daten. Ohne caching hätte jeder Client des Frontends direkt Anfragen an Netilion gesendet. Auch wenn ein Client nur alle 30 Minuten die Daten aktualisiert, wir wissen trotzdem nicht auf wievielen Clients unser Frontend gerade aktiv ist. Das Abonnement der REST-API besitzt eine maximale Nummer an Anfragen welche gemacht werden können, bevor auf das nächst teurere Abonnement aufgerüstet werden muss. Diese Nummer nicht zu überschreiten war ein Kriterium des Product Owners. Da dies schwierig abzuschätzen oder auszurechnen ist mit einer unbekannten Zahl, wurde das Backend erstellt.
 \newline
@@ -64,9 +64,33 @@ Das Backend wird auf Heroku gehostet. Gründe dafür sind folgende:
   \centering
   \includegraphics[width=.4\linewidth]{./images/frontend.png}
   \caption[{Diagram OSE-Dashboard Frontend von Jonas Schultheiss}]{OSE-Dashboard Frontend}
-  \label{fig:backend}
+  \label{fig:frontend}
 \end{figure}
 \subsubsection{Hosting}
 Das Hosting wird mit Vercel gemacht. Vercel ist eine amerikanische Firma, die sich auf den JAM-Stack fokussiert. Seit 2016 bietet sie eine sehr vereinfachte Möglichkeit moderne JavaScript Frontends zu builden und deployen. Zeitgleich arbeiten sie auch an Nextjs, welches kurze Zeit später veröffentlicht wurde. Nextjs ist ein Frontend Framework, welches routing, server side rendering und viele weitere features mit React verbindet. Nextjs ist für das Hosting auf Vercel optimiert. So ist das Deployment noch einfacher, als bei vergleichbaren Frameworks, und es können tiefere Analysewerte gemessen werden.
 \subsubsection{Server Side Rendering}
 Eines der Features welches Nextjs ausmacht, ist das server side rendering, welches es out-of-the-box anbietet. So kann man beim entwickeln angeben, welche Seiten statisch und welche dynamisch sein sollen. So wird nicht nur die Erfahrung des Users besser, man steigert auch das SEO ranking. Das Framework baut auf express auf. Dies ermöglicht es einem ein minimales backend in das Frontend einzubauen. Die Vorteile davon sind, dass sensible Daten so nicht beim Benutzer landen.
+\section{Ist/Soll-Vergleich}
+Ein meiner Meinung nach wichtiger Teil der IPA ist der Vergleich zwischen dem momentan vorhandenen Stand und wie das fertige Produkt aussehen sollte. In den folgenden Kapiteln \ref{ist-zustand} und \ref{soll-zustand} gehe ich auf diese beiden Themen ein.
+\subsection{Ist-Zustand} \label{ist-zustand}
+\subsubsection{Model}
+Bei der Erstellung der Vorarbeit war die verwendung von mehreren Modellen nie ein Thema. Es sollte extra für Reinach angefertigt werden. Zu diesem Zeitpunkt wusste ich sogar nicht einmal, dass die Endress+Hauser Gruppe nochmehr von ihnen besass, geschweige den, dass sie intern standartisiert wurde. Das heisst, dass immer die gleichen Messgeräte auf den Modellen sind.
+\newline
+Da es sich nur um ein einziges Model handelte, habe ich die ID's der digitalen Zwillingen der Messgeräte per Hand herausgesucht und dann statisch in den Quellcode geschrieben. Dies war der einfachste Weg um das Projekt wie gewünscht umzusetzten. Es gab mir zu diesem Zeitpunkt auch keinen Sinn das ganze dynamisch zu gestalten.
+\subsubsection{Credentials}
+Damit ich die Daten der Messgeräte erhalten konnte, musste ich credentials verwenden. Dies wurde von Anfang mit Environment Variablen gelöst, da ich leider in der Vergangenheit schon einmal erfahren musste, was es heisst, die Credentials auf GitHub zu pushen. Anfangs wurde dies mit BasicAuth im Server-Side Teil von Nextjs gelöst. Später habe ich es dann allerdings ins Backend verschoben. Momentan verwendet das Projekt noch disen statischen Lösungsweg mit BasicAuth.
+\subsubsection{Konfiguration}
+Da es sich nur um ein Model handelte, habe ich gewünschte Konfigurationen entweder in Environment Variablen gespeichert oder direkt in den SourceCode geschrieben. Da es nun mehrere Modelle sind, muss unbedingt ein Konfigurationsmenü her.
+\subsection{Soll-Zustand} \label{soll-zustand}
+\subsubsection{Modelle}
+Es sollen nun mehrere Modelle eingebunden werden können und ein User soll zwischen den Standorten wechseln können. Dafür müssen nun neue Entitäten im Backend und neue Tabellen in der Datenbank angelegt werden. Einerseits soll eine \flqq models\frqq Tabelle her, welche die \flqq assets\frqq , also Messgeräte bundelt. Andererseits muss auch der Standord des Models abrufbar sein können, weswegen auch eine \flqq locations\frqq Tabelle erstellt werden sollte.
+\subsubsection{OAuth2}
+In dieser Erweiterung ist es notwendig, dass sich mehrere Netilion Accounts sicher anmelden können. Ich habe mich in der Vergangenheit sehr intensiv mit OAuth2 beschäftigt und finde, dass ich es optimal für diesen UseCase umsetzten kann. Sprechen wir allerdings über die Entscheidung, wieso OAuth2 verwendet werden sollte und nicht einfach das bestehende BasicAuth Konstrukt erweitert werden sollte.
+\begin{itemize}
+  \item BasicAuth wird in der nahen Zukunft nicht mehr unterstützt
+  \item OAuth2 verbessert wie User Experience, da ein Nutzer nurnoch seinen Login braucht.
+  \item OAuth2 vermindert den administrativen Aufwand
+  \item Die Lösung ist optimaler und schöner
+\end{itemize}
+\subsubsection{Konfigurationsmenü}
+Damit der Verantwortliche eines OSE Models Einstellungen vornehmen kann, muss unbedingt ein Konfigurationsmenü her. Ein Teil der IPA ist es, die digitalen Zwillinge automatisch mit den Meshes des 3D-Models zu verlinken. Sollte dies aus irgeneinem Grund nicht möglich sein, soll der User dies selbst manuel verlinken können. Damit diese wichtige Einstellung aber nicht von jedem User vorgenommen werden kann, darf nur dies nur ein eingeloggter User, welcher sich in einer Usergroup befindet, vornehmen.
