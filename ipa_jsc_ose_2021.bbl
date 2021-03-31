@@ -52,6 +52,46 @@
       \verb https://support.apple.com/de-ch/HT201250
       \endverb
     \endentry
+    \entry{a2021_documentation}{online}{}
+      \list{organization}{1}{%
+        {Documentation | NestJS - A progressive Node.js framework}%
+      }
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labeltitlesource}{title}
+      \field{title}{Documentation | NestJS - A progressive Node.js framework}
+      \field{urlday}{31}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.nestjs.com/techniques/task-scheduling
+      \endverb
+      \verb{url}
+      \verb https://docs.nestjs.com/techniques/task-scheduling
+      \endverb
+    \endentry
+    \entry{nest_guards}{misc}{}
+      \list{organization}{1}{%
+        {Documentation | NestJS - A progressive Node.js framework}%
+      }
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labeltitlesource}{title}
+      \field{title}{Documentation | NestJS - A progressive Node.js framework}
+      \field{urlday}{31}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.nestjs.com/guards
+      \endverb
+      \verb{url}
+      \verb https://docs.nestjs.com/guards
+      \endverb
+    \endentry
     \entry{a2021_hardware}{online}{}
       \list{organization}{1}{%
         {Apple Support}%

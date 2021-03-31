@@ -8,7 +8,7 @@
   \caption[Eine von mir mit Lucidchart erstellte grobe Systemarchitektur]{Grobe Systemarchitektur}
   \label{fig:systemarchitektur}
 \end{figure}
-Das System des OSE Dashboard besteht aktuell aus vier essentiellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose}, \ref{arch-netilion}, \ref{arch-backend} und \ref{arch-frontend} erläutert.
+Das System des OSE-Dashboards besteht aktuell aus vier essenziellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose}, \ref{arch-netilion}, \ref{arch-backend} und \ref{arch-frontend} erläutert.
 \subsection{One Story Exhibit} \label{arch-ose}
 Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In diesem Projekt sind dies Ausstellungsmodelle von Endress+Hauser selbst. Die Gruppe verwendet diese an Messen oder in Verkaufsstellen, um den Kunden unser umfassendes Portfolio an Messgeräten näher zu bringen. Diese Applikation soll diesem Prozess helfen und zeigen, was mit unserem IIoT-Angebot möglich ist.
 \subsection{Netilion} \label{arch-netilion}
@@ -20,9 +20,9 @@ Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In dies
 \end{figure}
 Netilion ist das IIoT Angebot welches vor einigen Jahren von der Endress+Hauser Digital Solutions ins Leben gerufen wurde. Zuvor hatten Kunden keinen direkten Einblick in die genauen Daten der Messgeräte. Techniker mussten regelmässig vorbei kommen und die Geräte prüfen, auch wenn das Gerät noch optimal lief. Nun ist die ganze Anlage des Kunden ans Internet gebunden, was die Möglichkeiten praktisch grenzenlos macht.
 \newline
-Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert. In Intervallen sendet es diese dann an die REST API von Netilion. Da werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine unseren Web Applikationen öffnen und die verarbeiteten Daten grafisch aufbereitet ansehen.
+Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert. In Intervallen sendet es diese dann an die REST API von Netilion. Da werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine unseren Webapplikationen öffnen und die verarbeiteten Daten grafisch aufbereitet ansehen.
 \subsubsection{Hub}
-Der Hub ist sozusagen das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert das ganze in einer Datenbank.
+Der Hub ist das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST-API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert das Ganze in einer Datenbank.
 \subsubsection{Standard Services}
 Die Standard Services sind Webapplikationen, welche die Daten der Anlage entgegennehmen, passend darstellt und mit anderen Daten integriert. So zeigt zum Beispiel die Applikation \textit{Health} die NE107 Status der einzelnen Geräte an. \textit{Value} hingegen stellt unter anderem die Messwerte der Geräte dar. Diese Services sind das Herz des IIoT-Angebotes. Sie sollen dem Kunden kosten sparen und Prozesse vereinfachen. 
 \subsubsection{Connect}
@@ -108,10 +108,53 @@ Damit der Verantwortliche eines OSE Models Einstellungen vornehmen kann, muss un
 \subsection{Akzeptanzkriterien}
 \begin{table}[htp]
   \begin{tabularx}{\textwidth}{l l X}\hline \\
+    \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
+    1 & AK & Abkürzung für Akzeptanzkriterium \\
+    2 & - & Trennzeichen \\
+    3 & 01 & Fortlaufende Kennzahl \\
+    \\\hline
+  \end{tabularx}
+\end{table}
+\subsection{Test Cases}
+\begin{table}[htp]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
   \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
-  1 & AK & Abkürzung für Akzeptanzkriterium \\
+  1 & TC & Abkürzung für Test Case \\
   2 & - & Trennzeichen \\
   3 & 01 & Fortlaufende Kennzahl \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\subsubsection{Fehlerklassen}
+Damit Testergebnisse nach der Prüfung priorisiert werden können, werden ihnen Fehlerklassen zugewiesen.
+\newline
+Fehlerklassen sind folgenderweise definiert:
+\begin{table}[htp]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
+  \textbf{Fehlerklasse} & \textbf{Beschreibung} \\ \\\hline \\
+  0 & Definiertes Resultat stimmt mit dem getesteten Resultat überein \\
+  1 & Definiertes Resultat weicht von dem getestet Resultat ab, beeinträchtigt die \\
+    & Funktionalität allerdings nicht \\
+  2 & Definiertes Resultat weicht von dem getestet Resultat ab und beeinträchtigt \\
+    & die Funktionalität \\
+  3 & Definiertes Resultat und getestetes Resultat stimmen nicht überein \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{Test Case Schema}
+\begin{table}[htp]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
+  \textbf{Segment} & \textbf{Beschreibung} \\ \\\hline \\
+  Name & Name des Testes, gemäss des Namenskonzeptes \\
+  Tester & Name der Person, die den Test durchgeführt hat \\
+  Erwartetes Resultat & Vom Nutzer gewünschtes Resultat \\
+  Effektives Resultat & Eingetroffenes Resultat \\
+  Szenario & In Schritten definiertes Testszenario \\
+  Fehlerklasse & Zugewiesene Fehlerklasse nach der Überprüfung \\
+  Weiteres Vorgehen & Vorgehensbeschreibung, sollte die Fehlerklasse nicht 0 sein \\
+  Betroffene Use Cases & Welche Use Cases sind betroffen \\
+  Status & Zeigt, ob der Test Case geprüft wurde \\
   \\\hline
   \end{tabularx}
 \end{table}
@@ -207,3 +250,88 @@ Der OSE Verantwortliche ist die Person, welche für ein Model verantwortlich ist
 \subsection{Entwickler}
 Der Entwickler bin ich. Mir ist es wichtig, alle gewünschten Features kompetent und wie gewünscht umzusetzten, und dabei den Fortschritt korrekt zu dokumentieren.
 \section{User Stories}
+\subsection{US-01}
+Als OSE Verantwortlicher möchte ich mich einloggen können, damit ich mein Model registrieren kann.
+\begin{itemize}
+  \item AK-01 Login möglich
+  \item AK-02 Login Daten sind geschützt und nicht von einem Benutzer auslesbar
+  \item AK-03 Bei einem Fehlversuch wird eine passende Fehlermeldung angezeigt
+  \item AK-04 Es gibt eine unlimitierte anzahl an 
+\end{itemize}
+\subsection{US-02}
+Als OSE Verantwortlicher möchte ich, dass die digitalen Zwillinge der Messgeräte automatisch verlinkt werden, ohne das ich etwas machen muss, solange sie standartisiert sind.
+\begin{itemize}
+  \item AK-01 Automatische verlinkung bei Registrierung funktioniert, solange die Assets nach dem Standard benannt sind
+  \item AK-02 Methode, welche die Verlinkung vornimmt ist mit automatischen Tests abgedeckt
+\end{itemize}
+\subsection{US-03}
+Als OSE Verantwortlicher möchte ich ein Konfigurationsmenü, mit welchem ich die V§erlinkung manuel ändern kann, sollte ich ein Gerät austauschen.
+\begin{itemize}
+  \item AK-01 Konfigurationsmenü ist aufrufbar
+  \item AK-02 Verlinkungen sind manuel veränderbar
+\end{itemize}
+\subsection{US-04}
+Als OSE Verantwortlicher möchte ich sicher sein, dass kein Endnutzer die Verlinkung ändern kann.
+\begin{itemize}
+  \item AK-01 Konfigurationsmenü ist nur aufrufbar, solange der OSE Verantwortliche eingeloggt ist
+  \item AK-02 Konfigurationsmenü ist nur aufrufbar, solange sich der Account in einer spezifischen User Gruppe befindet
+\end{itemize}
+\subsection{US-05}
+Als Endnutzer möchte ich die Applikation nutzen können, ohne mich einloggen zu müssen.
+\begin{itemize}
+  \item AK-01 Applikation ist weiterhin ohne Login nutzbar
+\end{itemize}
+\subsection{US-06}
+Als Endnutzer möchte ich die Datenquelle des OSE-Dashboards aus den verfügbaren Standorten auswählen können, damit ich auch Daten anderer Modelle sehen kann.
+\begin{itemize}
+  \item AK-01 Standort kann geändert werden
+  \item AK-02 Übersicht über alle verfügbaren Standorte ist implementiert
+\end{itemize}
+\section{OAuth2 Strategie}\label{oauth2-strat}
+\subsection{Was ist OAuth2?}
+OAuth2 wurde ins Leben gerufen, um einen spezifischen UseCase zu decken. Eine Applikation eines Drittanbieters möchte zum Beispiel Daten des Users von Spotify abrufen. Vor OAuth2 musste der User seine Logindaten an den Drittanbieter senden, welcher diese dann in Klartextformat abspeichern musste, damit er später selber die Daten abrufen kann.
+\newline
+Der User hatte so keine Kontrolle über die Aufbewahrung der Logindaten und wusste schon garnicht was der Drittanbieter alles mit den Logindaten anstellt. Zusammengefasst war der ganze Prozess sehr unsicher und der User übergab immer alle Rechte des Accounts.
+\newline
+\newline
+Mit OAuth2 konnte dieser Prozess nun sicher gestaltet werden. Der User wird auf die Anmeldeseite des OAuth2-Providers weitergeleitet und meldet sich dort an. So kommt die Applikation des Drittanbieters zu keinem Zeitpunkt an die Logindaten. Als nächstes wird dem User gezeigt, auf was für Daten der Drittanbieter zugriff haben möchte. Akzeptiert der User, wird er wieder zurück an den Drittanbieter weitergeleitet, welcher mit diesem Schritt einen Zugriffstoken erhält. Dieser ist nur von dieser Applikation und auf diesen User nutzbar, um die Daten, die der User freigegeben hat, anzufragen.
+\pagebreak
+\subsection{Anwendung im OSE-Dashboard}
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1\linewidth]{./images/OAuth2.png}
+  \caption[OAuth2 visualisiert durch ein Sequenzdiagram]{OAuth2 visualisiert durch ein Sequenzdiagram}
+  \label{fig:oauth2}
+\end{figure}
+Folgend ist eine Auflistung der einzelnen Schritte, welche in der Abbildung \ref{fig:oauth2} dargestellt sind.
+\begin{enumerate}
+  \item Der User will sich einloggen und klickt auf ein \code{<a></a>} tag.
+  \item Daraufhin wird er zu Netilion ID weitergeleitet. Die URL enthält dabei die \code{client\_id} und \newline\code{redirect\_uri}. Dadurch weiss Netilion, welche Applikation die Anfrage macht und wohin der User nach der Anmeldung weitergeleitet werden möchte.
+  \item Gibt es ein Problem mit dem Login, erhält die \code{redirect uri}, also unser Backend, eine Fehlermeldung.
+  \item Mit dieser Fehlermeldung in der URl wird der User wieder ans Frontend weitergeleitet.
+  \item Das Frontend nimmt die Fehlermeldung entgegen und stellt sie für den User dar.
+  \item Wenn alles korrekt ablauft, erhält unser Backend einen Code.
+  \item Mit diesem Code kann das Backend dann einen Zugriffstoken anfordern.
+  \item Dieser wird von Netilion ID an unser Backend geschickt.
+  \item Mit diesem Zugriffstoken ist es dann möglich Daten von Netilion abzufragen, in diesem Fall der User.
+  \item Die Daten des Users werden anschliessend zurückgeschickt.
+  \item Der \code{refresh\_token} wird encrypted und in der Datenbank gespeichert.
+  \item Der \code{access\_token} wird in redis gecached.
+  \item Existiert der User, wird dieser aus der Datenbank gelesen. Existiert er nicht wird ein neuer erstellt.
+  \item Der User wird als JWT zurück ans Frontend geschickt.
+  \item Das Frontend zeigt an, dass die Anmeldung erfolgreich verlief.
+  \item Wenn das Model noch nicht registriert wurde oder die Messgeräte noch nicht verlinkt wurden, wird der User nach zusätzlichen Daten, wie dem Standort, gefragt.
+  \item Das Frontend schickt diese Daten mit dem JWT an das Backend.
+  \item Das Backend erstellt ein neues Model mit den Daten des Users.
+  \item Anschliessend fragt es bei Netilion nach allen Messgeräten nach.
+  \item Netilion antwortet mit allen Messgeräten des Users.
+  \item Daraufhin erfolgt die automatische Verlinkung.
+  \item Das Model mitsamt verlinkten Messgeräten wird ans Frontend weitergeleitet.
+  \item Stimmt die Verlinkung ist der Nutzer zufrieden und der Prozess beendet.
+  \item Stimmt die Verlinkung nicht, da der Nutzer nicht die standartisierten Geräte oder benennungen verwendet, wird ihm das Resultat angezeigt.
+  \item Daraufhin verlinkt der User selbst die Geräte.
+  \item Dies wird ans Backend gesendet, damit die Änderungen gespeichert werden können.
+  \item Die gespeicherten Änderungen werden an das Frontend geschickt.
+  \item Der User wird benachrichtigt, dass seine Änderungen übernommen wurden. Der User ist zufrieden und der Prozess beendet.
+  \item Ist das Model bereits registriert und die Messgeräte verlinkt, ist der Prozess beendet.
+\end{enumerate}

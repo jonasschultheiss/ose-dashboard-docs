@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'ipa_jsc_ose_2021.blg'
-[90] biber-darwin:322> INFO - === Tue Mar 30, 2021, 09:58:08
-[106] Biber.pm:415> INFO - Reading 'ipa_jsc_ose_2021.bcf'
-[206] Biber.pm:943> INFO - Found 3 citekeys in bib section 0
-[221] Biber.pm:4256> INFO - Processing section 0
-[221] Utils.pm:75> INFO - Globbing data source 'quellen.bib'
-[222] Utils.pm:91> INFO - Globbed data source 'quellen.bib' to quellen.bib
-[232] Biber.pm:4455> INFO - Looking for bibtex format file 'quellen.bib' for section 0
-[233] bibtex.pm:1653> INFO - LaTeX decoding ...
-[238] bibtex.pm:1471> INFO - Found BibTeX data source 'quellen.bib'
-[270] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[270] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[270] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[270] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[278] bbl.pm:652> INFO - Writing 'ipa_jsc_ose_2021.bbl' with encoding 'UTF-8'
-[279] bbl.pm:755> INFO - Output to ipa_jsc_ose_2021.bbl
+[107] biber-darwin:322> INFO - === Wed Mar 31, 2021, 16:23:04
+[128] Biber.pm:415> INFO - Reading 'ipa_jsc_ose_2021.bcf'
+[250] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
+[266] Biber.pm:4256> INFO - Processing section 0
+[266] Utils.pm:75> INFO - Globbing data source 'quellen.bib'
+[267] Utils.pm:91> INFO - Globbed data source 'quellen.bib' to quellen.bib
+[280] Biber.pm:4455> INFO - Looking for bibtex format file 'quellen.bib' for section 0
+[281] bibtex.pm:1653> INFO - LaTeX decoding ...
+[288] bibtex.pm:1471> INFO - Found BibTeX data source 'quellen.bib'
+[326] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[326] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[326] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[326] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[339] bbl.pm:652> INFO - Writing 'ipa_jsc_ose_2021.bbl' with encoding 'UTF-8'
+[340] bbl.pm:755> INFO - Output to ipa_jsc_ose_2021.bbl
