@@ -2185,6 +2185,8 @@
     <bcf:citekey order="1">apple_2021_mit</bcf:citekey>
     <bcf:citekey order="2">a2021_hardware</bcf:citekey>
     <bcf:citekey order="3">a2021_keep</bcf:citekey>
+    <bcf:citekey order="4">a2021_documentation</bcf:citekey>
+    <bcf:citekey order="5">nest_guards</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

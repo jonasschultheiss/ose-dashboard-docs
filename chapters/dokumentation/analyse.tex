@@ -8,7 +8,7 @@
   \caption[Eine von mir mit Lucidchart erstellte grobe Systemarchitektur]{Grobe Systemarchitektur}
   \label{fig:systemarchitektur}
 \end{figure}
-Das System des OSE Dashboard besteht aktuell aus vier essentiellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose}, \ref{arch-netilion}, \ref{arch-backend} und \ref{arch-frontend} erläutert.
+Das System des OSE-Dashboards besteht aktuell aus vier essenziellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose}, \ref{arch-netilion}, \ref{arch-backend} und \ref{arch-frontend} erläutert.
 \subsection{One Story Exhibit} \label{arch-ose}
 Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In diesem Projekt sind dies Ausstellungsmodelle von Endress+Hauser selbst. Die Gruppe verwendet diese an Messen oder in Verkaufsstellen, um den Kunden unser umfassendes Portfolio an Messgeräten näher zu bringen. Diese Applikation soll diesem Prozess helfen und zeigen, was mit unserem IIoT-Angebot möglich ist.
 \subsection{Netilion} \label{arch-netilion}
@@ -20,9 +20,9 @@ Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In dies
 \end{figure}
 Netilion ist das IIoT Angebot welches vor einigen Jahren von der Endress+Hauser Digital Solutions ins Leben gerufen wurde. Zuvor hatten Kunden keinen direkten Einblick in die genauen Daten der Messgeräte. Techniker mussten regelmässig vorbei kommen und die Geräte prüfen, auch wenn das Gerät noch optimal lief. Nun ist die ganze Anlage des Kunden ans Internet gebunden, was die Möglichkeiten praktisch grenzenlos macht.
 \newline
-Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert. In Intervallen sendet es diese dann an die REST API von Netilion. Da werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine unseren Web Applikationen öffnen und die verarbeiteten Daten grafisch aufbereitet ansehen.
+Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert. In Intervallen sendet es diese dann an die REST API von Netilion. Da werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine unseren Webapplikationen öffnen und die verarbeiteten Daten grafisch aufbereitet ansehen.
 \subsubsection{Hub}
-Der Hub ist sozusagen das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert das ganze in einer Datenbank.
+Der Hub ist das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST-API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert das Ganze in einer Datenbank.
 \subsubsection{Standard Services}
 Die Standard Services sind Webapplikationen, welche die Daten der Anlage entgegennehmen, passend darstellt und mit anderen Daten integriert. So zeigt zum Beispiel die Applikation \textit{Health} die NE107 Status der einzelnen Geräte an. \textit{Value} hingegen stellt unter anderem die Messwerte der Geräte dar. Diese Services sind das Herz des IIoT-Angebotes. Sie sollen dem Kunden kosten sparen und Prozesse vereinfachen. 
 \subsubsection{Connect}
@@ -287,7 +287,7 @@ Als Endnutzer möchte ich die Datenquelle des OSE-Dashboards aus den verfügbare
   \item AK-01 Standort kann geändert werden
   \item AK-02 Übersicht über alle verfügbaren Standorte ist implementiert
 \end{itemize}
-\section{OAuth2 Strategie}
+\section{OAuth2 Strategie}\label{oauth2-strat}
 \subsection{Was ist OAuth2?}
 OAuth2 wurde ins Leben gerufen, um einen spezifischen UseCase zu decken. Eine Applikation eines Drittanbieters möchte zum Beispiel Daten des Users von Spotify abrufen. Vor OAuth2 musste der User seine Logindaten an den Drittanbieter senden, welcher diese dann in Klartextformat abspeichern musste, damit er später selber die Daten abrufen kann.
 \newline
