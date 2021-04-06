@@ -38,3 +38,159 @@ Das ganze sollte folgenderweise gelöst werden:
 Wie in Kapitel \ref{data-fetching} angesprochen, sind die aktuellen Daten im Backend verfügbar. So ist es also gar nicht nötig Netilion direkt anzufragen. Das Backend soll stattdessen die Daten mit einem public Endpoint verfügbar machen. Auf diesem Weg umgehen wir auch die maximale Anfragen an Netilion, welche in Kapitel \ref{arch-backend} beschrieben wurde.
 \newline
 So kann das Frontend beliebig oft die Daten abfragen, ohne das sich ein User einloggen muss oder das wir die Grenze der Connect Subscription übertreten.
+\section{Mockups}
+Mockups dienen zur Planung der Darstellung des Frontends. Es ist viel sinnvoller das Layout und den Inhalt der Website im Vorfeld zu skizzieren und damit herumzuspielen, als während dem Implementieren. Weiss man während der Implementierungsphase noch nicht wie das Produkt grob aussehen sollte verschwendet man meist wertvolle Zeit.
+\newline
+Oft wird vor der Erstellung der Website ein UX-Design erstellt. Dieses gibt grob das Layout und den Inhalt. Ein UI-Design wird angewand wenn das detaillierte Design der Website wichtig ist. Dabei werden die ganzen Komponenten der Website bis ins Detail im Vorfeld designed, sodass dies den Anspruchsgruppen und den Programmieren klar ist.
+\newline
+Bei dieser Arbeit ist nur die Erarbeitung eines UX-Designs wichtig. Dies wurde soweit erstellt und ist nachfolgend in den Kapiteln dokumentiert.
+\pagebreak
+\subsection{Index Page} \label{mck:index} 
+Momentan ist die Index Page des OSE-Dashboards das Reinacher Model selbst. Dies soll sich nun ändern. Die rote Linie markiert die initiale Sicht des User. Diese enthält den Titel und eine Beschreibung der Webapplikationen, gefolgt von der Auswahlmöglichkeit der ganzen Modelle. Unter der initialen Sicht ist ein Abschnitt, welcher den User fragt, ob er für ein OSE-Model zuständig ist. Sollte dies der Fall sein, könne er sich einloggen und so die Daten für das Dashboard zur verfügung stellen.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./mockups/index/not_signed_in.pdf}
+  \caption[{Mockup der Index Page}]{Mockup der Index Page}
+  \label{fig:mck-index}
+\end{figure}
+\pagebreak
+\subsection{Registration} \label{mck:registration}
+\subsubsection{Fehlermeldung}
+Sollte beim Loginprozess etwas schiefgehen, wird die unten dargestellte Fehlermeldung angezeigt. Dabei wird erwähnt, dass dieser Fehler sehr wahrscheinlich durch den Kandidaten geschah und nicht durch Netilion. Darunter befindet sich die Meldung, dass der User in x Sekunden wieder auf die Startseite weitergeleited wird.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/error.pdf}
+  \caption[{Mockup einer Fehlermeldung}]{Mockup einer Fehlermeldung}
+  \label{fig:mck-error}
+\end{figure}
+\pagebreak
+\subsubsection{Anmeldung erfolgreich}
+Diese Ansicht wird angezeigt, wenn der Loginprozess erfolgreich abläuft. Dabei wird im oberen Teil angezeigt, dass dies der Erste der insgesammt drei Schritte ist, welche für die erfolgreiche Registration benötigt werden.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/stage_1.pdf}
+  \caption[{Mockup einer erfolgreichen Anmeldung}]{Mockup einer erfolgreichen Anmeldung}
+  \label{fig:mck-stage_1}
+\end{figure}
+\pagebreak
+\subsubsection{Model registrieren}
+Nun wird der OSE-Verantwortlicher darum gebeten, seinem Model einen Namen zu geben und den Standort anzugeben, damit die User sein Model dann über die Index Page finden können.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/stage_2.pdf}
+  \caption[{Mockup der Registration}]{Mockup der Registration}
+  \label{fig:mck-stage_2}
+\end{figure}
+\pagebreak
+\subsubsection{Asset verlinkung}
+Der letzte Schritt der Registrierung ist das Verlinken der Assets mit den Meshes des 3D Models. Da dies automatisch geschieht, wird der User an dieser stelle gebeten zu warten, bis der Prozess abgeschlossen ist.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/stage_3.pdf}
+  \caption[{Mockup der Asset verlinkung}]{Mockup der Asset verlinkung}
+  \label{fig:mck-stage_3}
+\end{figure}
+\pagebreak
+\subsubsection{Asset verlinkung fehlgeschlagen}
+Konnten nicht alle Assets verlinkt werden, wird dieses Fenster angezeigt. Es erklärt dem User was geschah und das er die Verlinkung im nächsten Schritt manuel anpassen kann.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/redirect.pdf}
+  \caption[{Mockup einer fehlgeschlagenen Verlinkung}]{Mockup einer fehlgeschlagenen Verlinkung}
+  \label{fig:mck-redirect}
+\end{figure}
+\pagebreak
+\subsubsection{Asset verlinkung erfolgreich}
+Konnten alle Assets verlinkt werden, wird dieses Fenster angezeigt. Es informiert den User, dass der Registrationsprozess hiermit abgeschlossen ist. Mit dem Knopf am unteren Rand wird er ausgeloggt und kehrt zur Startseite zurück.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/register/all_success.pdf}
+  \caption[{Mockup einer erfolgreichen Verlinkung}]{Mockup einer erfolgreichen Verlinkung}
+  \label{fig:mck-all_success}
+\end{figure}
+\pagebreak
+\subsection{Einstellungsmenü}
+\subsubsection{Modeleinstellungen}
+Nachfolgend ist ein Design für die Modeleinstellungsseite. Hier kann der OSE Verantwortlicher den Namen und die Beschreibung des Models ändern.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/settings/Model.pdf}
+  \caption[{Mockup des Modeleinstellungsmenü}]{Mockup des Modeleinstellungsmenü}
+  \label{fig:mck-model}
+\end{figure}
+\pagebreak
+\subsubsection{Standorteinstellungen}
+Dies ist das Design für die Standortseinstellungsseite. Hier kann der Standort im nachhinein verändert werden.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/settings/Model-1.pdf}
+  \caption[{Mockup des Standorteinstellungsmenü}]{Mockup des Standorteinstellungsmenü}
+  \label{fig:mck-model_1}
+\end{figure}
+\pagebreak
+\subsubsection{Verlinkungseinstellungen}
+Nachfolgend ist ein Design für die Verlinkungseinstellungsseite. Hier kann der OSE Verantwortlicher Verlinkung des Models ändern.
+\begin{figure}[H]
+  \centering
+  \includegraphics[angle=270,width=0.6\textwidth]{./mockups/settings/Model-2.pdf}
+  \caption[{Mockup des Verlinkungseinstellungsmenü}]{Mockup des Verlinkungseinstellungsmenü}
+  \label{fig:mck-model_2}
+\end{figure}
+\section{Testkonzept}
+Damit sich bei der Abnahme des Projektes sicher gegangen werden kann, dass alles wie gewünscht funktioniert, wird ein Testkonzept erarbeitet. Dieses soll sich auf die bereits erstellten User-Stories stützen und so alle Anforderungen der Anspruchsgruppen abdecken. Nach der Implementierungsphase wird dieses Konzept befolgt und differenzen dokumentiert.
+\newline
+Einzelne Test-Cases werden wie folgt benannt:
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
+  \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
+  1 & TC & Abkürzung für Test Case \\
+  2 & - & Trennzeichen \\
+  3 & 01 & Fortlaufende Kennzahl \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\subsection{Fehlerklassen}
+Damit Testergebnisse nach der Prüfung priorisiert werden können, werden ihnen Fehlerklassen zugewiesen.
+Fehlerklassen sind folgenderweise definiert:
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
+  \textbf{Fehlerklasse} & \textbf{Beschreibung} \\ \\\hline \\
+  0 & Definiertes Resultat stimmt mit dem getesteten Resultat überein \\
+  1 & Definiertes Resultat weicht von dem getestet Resultat ab, beeinträchtigt die \\
+    & Funktionalität allerdings nicht \\
+  2 & Definiertes Resultat weicht von dem getestet Resultat ab und beeinträchtigt \\
+    & die Funktionalität \\
+  3 & Definiertes Resultat und getestetes Resultat stimmen nicht überein \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\subsection{Test Case Schema}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l l X}\hline \\
+  \textbf{Segment} & \textbf{Beschreibung} \\ \\\hline \\
+  Name & Name des Testes, gemäss des Namenskonzeptes \\
+  Tester & Name der Person, die den Test durchgeführt hat \\
+  Erwartetes Resultat & Vom Nutzer gewünschtes Resultat \\
+  Effektives Resultat & Eingetroffenes Resultat \\
+  Szenario & In Schritten definiertes Testszenario \\
+  Fehlerklasse & Zugewiesene Fehlerklasse nach der Überprüfung \\
+  Weiteres Vorgehen & Vorgehensbeschreibung, sollte die Fehlerklasse nicht 0 sein \\
+  Status & Zeigt, ob der Test Case geprüft wurde \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\subsection{User-Stories Abdeckung}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X l}\hline \\
+  \textbf{Test-Case} & \textbf{Beschreibung} & \textbf{Betroffene User-Story} \\\hline \\
+  TC-01 & Login möglich und sicher -> OAuth2konzept befolgt & US-01 \\
+  TC-02 & Fehlermeldung Login & US-01 \\
+  TC-03 & Automatische verlinkung Assets & US-02 \\
+  TC-04 & Konfigurationsmenü aufrufbar & US-03 \\
+  TC-05 & Verlinkungen manuel änderbar & US-03 \\
+  TC-06 & Konfigurationsmenü nur durch eingeloggten User, welcher sich in der Usergruppe befindet, aufrufbar & US-04 \\
+  TC-07 & Übersicht aller Standorte & US-06 \\
+  TC-08 & Standort änderbar & US-06 \\
+  \\\hline
+  \end{tabularx}
+\end{table}

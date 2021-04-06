@@ -26,7 +26,7 @@ Der Hub ist das zentrale Lager aller Daten, welche im Ökosystem verwendet werde
 \subsubsection{Standard Services}
 Die Standard Services sind Webapplikationen, welche die Daten der Anlage entgegennehmen, passend darstellt und mit anderen Daten integriert. So zeigt zum Beispiel die Applikation \textit{Health} die NE107 Status der einzelnen Geräte an. \textit{Value} hingegen stellt unter anderem die Messwerte der Geräte dar. Diese Services sind das Herz des IIoT-Angebotes. Sie sollen dem Kunden kosten sparen und Prozesse vereinfachen. 
 \subsubsection{Connect}
-Netilion Connect ist ein relativ neues Angebot des Ökosystems. Grosse Kunden wollen meist entweder eigene eingekaufte oder von Ihren Entwickler hergestellte Systeme verwenden. Deshalb sollten sie auch ausserhalb unserer Applikation an ihre Daten kommen können können. So ergibt sich zum Beispiel die Möglichkeit ein Dashboard mit den Firmen Guidelines zu erstellen.
+Netilion Connect ist ein neues Angebot des Ökosystems. Grosse Kunden wollen entweder eigene eingekaufte oder von Ihren Entwickler hergestellte Systeme verwenden. Deshalb sollten sie auch ausserhalb unserer Applikation an ihre Daten kommen können. So ergibt sich zum Beispiel die Möglichkeit, ein Dashboard mit den Firmen Guidelines zu erstellen.
 \subsection{OSE-Dashboard: Backend} \label{arch-backend}
 \begin{figure}[!ht]
   \centering
@@ -34,30 +34,30 @@ Netilion Connect ist ein relativ neues Angebot des Ökosystems. Grosse Kunden wo
   \caption[{Diagram OSE-Dashboard Backend von Jonas Schultheiss}]{OSE-Dashboard Backend}
   \label{fig:backend}
 \end{figure}
-Die Aufgabe des Backends war primär das cachen der Daten. Ohne caching hätte jeder Client des Frontends direkt Anfragen an Netilion gesendet. Auch wenn ein Client nur alle 30 Minuten die Daten aktualisiert, wir wissen trotzdem nicht auf wievielen Clients unser Frontend gerade aktiv ist. Das Abonnement der REST-API besitzt eine maximale Nummer an Anfragen welche gemacht werden können, bevor auf das nächst teurere Abonnement aufgerüstet werden muss. Diese Nummer nicht zu überschreiten war ein Kriterium des Product Owners. Da dies schwierig abzuschätzen oder auszurechnen ist mit einer unbekannten Zahl, wurde das Backend erstellt.
+Die Aufgabe des Backends war primär das Cachen der Daten. Ohne caching würde jede Instanz des Frontends direkt Anfragen an Netilion gesendet. Auch wenn ein Client nur alle 30 Minuten die Daten aktualisiert, wir wissen trotzdem nicht, auf wie vielen Clients unser Frontend gerade aktiv ist. Das Abonnement der REST-API besitzt eine maximale Zahl an Anfragen, welche gemacht werden können, bevor auf die nächste teurere Stufe aufgerüstet werden muss. Diese Nummer nicht zu über- schreiten war ein Kriterium des Product-Owners. Da dies schwierig abzuschätzen oder auszurechnen ist mit einer unbekannten Zahl, wurde das Backend erstellt.
 \newline
-Ein eigenes Backend zu erstellen hat allerdings auch den Vorteil, dass wir zusätztliche Daten anfordern können und diese direkt mit den Netilion Daten verlinken/integrieren können.
+Ein eigenes Backend zu erstellen hat den Vorteil, dass wir zusätzliche Daten anfordern können und diese direkt mit den Netilion-Daten verlinken/integrieren können.
 \newline
 \newline
-Kurz vor der IPA hat das Team, welches hinter der Entwicklung von Netilion steht, angekündigt, dass Webhooks nun in der produktion verfügbar sind. Mithilfe von Webhooks kann ein Client einzelne Events abonnieren und erhält direkt bescheid, wenn sich ein Wert ändert. Mit diesen Webhooks müsste ich keine Intervale/Cron jobs verwenden müssen, wodurch die Anzahl der Anfragen deutlich vermindert werden würde.
+Kurz vor der IPA hat das Team, welches hinter der Entwicklung von Netilion steht, angekündigt, dass Webhooks nun in der Produktion verfügbar sind. Mithilfe von Webhooks kann ein Client einzelne Events abonnieren und erhält direkt Bescheid, wenn sich ein Wert ändert. Mit diesen Webhooks müsste ich keine Intervalle/Cron-Jobs verwenden müssen, wodurch die Anzahl der Anfragen deutlich vermindert werden würde.
 \newline
-Auch wenn ein Lösungsansatz mit Webhooks optimaler wäre, habe ich mich dagegen entschieden es an dieser IPA so zu lösen. Das Feature wurde kurz vor der IPA angekündigt und ich habe bisher keine theoretische oder praktische Erfahrung mit Webhooks. Gerne werde ich es nach dem Abschluss der IPA angehen.
+Auch wenn ein Lösungsansatz mit Webhooks optimaler wäre, habe ich mich dagegen entschieden, es an dieser IPA so zu lösen. Das Feature wurde kurz vor der IPA angekündigt und ich habe bisher keine theoretische oder praktische Erfahrung mit Webhooks. Gerne werde ich es nach dem Abschluss der IPA angehen.
 \subsubsection{Nestjs}
-Seit dem zweiten Lehrjahr arbeite ich mit JavaScript. Die Sprache hat mich von Anfang an angesprochen. Mit der Hauptgrund war, dass man mit JavaScript nicht nur ein Frontend erstellen kann, sondern mitlerweile dank Nodejs auch Backends/Servers und sogar Apps fürs Smartphone. Wenn ein Produkt im ganzen Stack nur JavaScript verwendet, müssen Entwickler nicht mehrere Sprachen lernen, sondern können sich ganz auf eine Fokussieren, Stücke vom Quellcode können ausgetauscht werden und so weiter.
+Seit dem zweiten Lehrjahr arbeite ich mit Javascript. Die Sprache hat mich von Anfang an angesprochen. Der Hauptgrund war, dass man mit Javascript nicht nur ein Frontend erstellen kann, sondern mittlerweile dank Node.js auch Backends/Servers und sogar Apps fürs Smartphone. Wenn ein Produkt im ganzen Stack Javascript verwendet, müssen Entwickler nicht mehrere Sprachen lernen, sondern können sich ganz auf eine Fokussieren, Stücke vom Quellcode können ausgetauscht werden und so weiter.
 \newline
-Ich habe Erfahrungen mit praktisch allen populären Nodejs Backendframeworks, konnte mich allerdings nie ganz mit einem anfreunden. Die meisten Frameworks sind unopinionated. Dies gefällt mir im Backend nicht, da nach einer relativ kurzen Zeit ein Durcheinander entsteht, welches man dann selber aufräumen kann. Sobald man dann einen passenden Platzt für alles gefunden hat, kann man das gleiche nochmals beim nächsten Projekt wiederholen.
+Ich habe Erfahrungen mit praktisch allen populären Node.js-Backendframeworks, konnte mich allerdings nie ganz mit einem anfreunden. Die meisten Frameworks sind unopinionated. Dies gefällt mir im Backend nicht, da nach einer kurzen Zeit ein Durcheinander entsteht, welches man dann selber aufräumen kann. Sobald man einen passenden Platz für alles gefunden hat, kann man das gleiche nochmals beim nächsten Projekt wiederholen.
 \newline
-Nestjs geht komplett in eine andere Richtung. Es ist sehr inspiriert von Java Spring Boot und Angular, ist extrem opinionated und das meiste kommt out-of-the-box, ohne das man selber viele Konfigurierationen machen muss.
+NestJS geht komplett in eine andere Richtung. Es ist sehr inspiriert von Java Spring und Angular, ist extrem opinionated und das meiste kommt out of the box, ohne das man selber viele Konfigurationen machen muss.
 \subsubsection{Inspiration}
-Wie in Java Spring Boot gibt es Controller, Services, Repositories und Entitäten. Diese werden jeweils nur für eine Resource erstellt. Mögliche Resourcen sind zum Beispiel "users" oder "assets". Wie in Angular werden sie zu einem Modul gebündelt.
+Wie in Java Spring Boot gibt es Controller, Services, Repositories und Entitäten. Diese werden jeweils nur für eine Ressource erstellt. Mögliche Ressourcen sind zum Beispiel "Users" oder "Assets". Wie in Angular werden sie zu einem Modul gebündelt.
 \subsubsection{Redis \& Postgresql}
-Ich habe mich bei temporärem Caching für Redis entschieden, da ich keine alternative dazu kenne und da es auch sonst intern verwendet wird. Postgresql habe ich genommen, da Netilion und das dahinterstehende Team dies verwendet.
+Ich habe mich bei temporärem Caching für Redis entschieden, da ich keine Alternative dazu kenne und da es auch sonst intern verwendet wird. PostgreSQL habe ich genommen, da Netilion und das dahinterstehende Team dies nutzt
 \subsubsection{Hosting}
 Das Backend wird auf Heroku gehostet. Gründe dafür sind folgende:
 \begin{itemize}
-  \item Praktische erfahrung seit dem zweiten Lehrjahr.
+  \item Praktische Erfahrung seit dem zweiten Lehrjahr.
   \item Wird intern und bei Netilion verwendet.
-  \item Bietet gratis Redis \& Postgresql instanz an, welche für diesen Use-Case komplett ausreichen.
+  \item Bietet gratis Redis \& PostgreSQL Instanz an, welche für diesen Use-Case komplett ausreichen.
 \end{itemize}
 \subsection{OSE-Dashboard: Frontend} \label{arch-frontend}
 \begin{figure}[!ht]
@@ -67,9 +67,9 @@ Das Backend wird auf Heroku gehostet. Gründe dafür sind folgende:
   \label{fig:frontend}
 \end{figure}
 \subsubsection{Hosting}
-Das Hosting wird mit Vercel gemacht. Vercel ist eine amerikanische Firma, die sich auf den JAM-Stack fokussiert. Seit 2016 bietet sie eine sehr vereinfachte Möglichkeit moderne JavaScript Frontends zu builden und deployen. Zeitgleich arbeiten sie auch an Nextjs, welches kurze Zeit später veröffentlicht wurde. Nextjs ist ein Frontend Framework, welches routing, server side rendering und viele weitere features mit React verbindet. Nextjs ist für das Hosting auf Vercel optimiert. So ist das Deployment noch einfacher, als bei vergleichbaren Frameworks, und es können tiefere Analysewerte gemessen werden.
-\subsubsection{Server Side Rendering}
-Eines der Features welches Nextjs ausmacht, ist das server side rendering, welches es out-of-the-box anbietet. So kann man beim entwickeln angeben, welche Seiten statisch und welche dynamisch sein sollen. So wird nicht nur die Erfahrung des Users besser, man steigert auch das SEO ranking. Das Framework baut auf express auf. Dies ermöglicht es einem ein minimales backend in das Frontend einzubauen. Die Vorteile davon sind, dass sensible Daten so nicht beim Benutzer landen.
+Das Hosting wird mit Vercel gemacht. Vercel ist eine amerikanische Firma, die sich auf den JAM-Stack fokussiert. Seit 2016 bietet sie eine sehr vereinfachte Möglichkeit, moderne Javascript Frontends zu builden und deployen. Zeitgleich arbeiten sie auch an Next.js, welches kurze Zeit später veröffentlicht wurde. Next.js ist ein Frontend Framework, welches Routing, Server-side-rendering und viele weitere Features mit React verbindet. Next.js ist für das Hosting auf Vercel optimiert. So ist das Deployment noch einfacher als bei vergleichbaren Frameworks, und es können tiefere Analysewerte gemessen werden.
+\subsubsection{Server-side-rendering}
+Eines der Features, welches Next.js ausmacht, ist das Server-side-rendering, welches es out of the box anbietet. Dadurch kann man beim Entwickeln angeben, welche Seiten statisch und welche dynamisch sein sollen. So wird nicht nur die Erfahrung des Users besser, man steigert auch das SEO Ranking. Das Framework baut auf express auf. Dies ermöglicht es einem, ein minimales backend in das Frontend einzubauen. Die Vorteile davon sind, dass sensible Daten so nicht beim Benutzer landen.
 \section{Ist/Soll-Vergleich}
 Ein meiner Meinung nach wichtiger Teil der IPA ist der Vergleich zwischen dem momentan vorhandenen Stand und wie das fertige Produkt aussehen sollte. In den folgenden Kapiteln \ref{ist-zustand} und \ref{soll-zustand} gehe ich auf diese beiden Themen ein.
 \subsection{Ist-Zustand} \label{ist-zustand}
@@ -113,48 +113,6 @@ Damit der Verantwortliche eines OSE Models Einstellungen vornehmen kann, muss un
     2 & - & Trennzeichen \\
     3 & 01 & Fortlaufende Kennzahl \\
     \\\hline
-  \end{tabularx}
-\end{table}
-\subsection{Test Cases}
-\begin{table}[htp]
-  \begin{tabularx}{\textwidth}{l l X}\hline \\
-  \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
-  1 & TC & Abkürzung für Test Case \\
-  2 & - & Trennzeichen \\
-  3 & 01 & Fortlaufende Kennzahl \\
-  \\\hline
-  \end{tabularx}
-\end{table}
-\subsubsection{Fehlerklassen}
-Damit Testergebnisse nach der Prüfung priorisiert werden können, werden ihnen Fehlerklassen zugewiesen.
-\newline
-Fehlerklassen sind folgenderweise definiert:
-\begin{table}[htp]
-  \begin{tabularx}{\textwidth}{l l X}\hline \\
-  \textbf{Fehlerklasse} & \textbf{Beschreibung} \\ \\\hline \\
-  0 & Definiertes Resultat stimmt mit dem getesteten Resultat überein \\
-  1 & Definiertes Resultat weicht von dem getestet Resultat ab, beeinträchtigt die \\
-    & Funktionalität allerdings nicht \\
-  2 & Definiertes Resultat weicht von dem getestet Resultat ab und beeinträchtigt \\
-    & die Funktionalität \\
-  3 & Definiertes Resultat und getestetes Resultat stimmen nicht überein \\
-  \\\hline
-  \end{tabularx}
-\end{table}
-\pagebreak
-\subsubsection{Test Case Schema}
-\begin{table}[htp]
-  \begin{tabularx}{\textwidth}{l l X}\hline \\
-  \textbf{Segment} & \textbf{Beschreibung} \\ \\\hline \\
-  Name & Name des Testes, gemäss des Namenskonzeptes \\
-  Tester & Name der Person, die den Test durchgeführt hat \\
-  Erwartetes Resultat & Vom Nutzer gewünschtes Resultat \\
-  Effektives Resultat & Eingetroffenes Resultat \\
-  Szenario & In Schritten definiertes Testszenario \\
-  Fehlerklasse & Zugewiesene Fehlerklasse nach der Überprüfung \\
-  Weiteres Vorgehen & Vorgehensbeschreibung, sollte die Fehlerklasse nicht 0 sein \\
-  Status & Zeigt, ob der Test Case geprüft wurde \\
-  \\\hline
   \end{tabularx}
 \end{table}
 \section{Versionskontrolle}
@@ -255,7 +213,6 @@ Als OSE Verantwortlicher möchte ich mich einloggen können, damit ich mein Mode
   \item AK-01 Login möglich
   \item AK-02 Login Daten sind geschützt und nicht von einem Benutzer auslesbar
   \item AK-03 Bei einem Fehlversuch wird eine passende Fehlermeldung angezeigt
-  \item AK-04 Es gibt eine unlimitierte anzahl an 
 \end{itemize}
 \subsection{US-02}
 Als OSE Verantwortlicher möchte ich, dass die digitalen Zwillinge der Messgeräte automatisch verlinkt werden, ohne das ich etwas machen muss, solange sie standartisiert sind.
