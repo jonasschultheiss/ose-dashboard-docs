@@ -1,0 +1,45 @@
+
+\chapter{Implementierung}
+\section{OAuth2}
+\subsection{Frontend}
+\subsection{Backend}
+\subsubsection{Log-in}
+\subsubsection{Assets}
+\section{Account löschen}
+Normalerweise kann man sich bei einem Dienst wieder abmelden und dank GDDPR auch alle seine Daten löschen lassen. In unserem Fall sollte der \code{refresh\_token} des OSE-Verantwortlichen revoked werden, woraufhin die Entität gelöscht wird. Im optimalen Falle sollte das ORM so konfiguriert sein, dass dannach alle Daten kaskadierend gelöscht werden. Das bedeutet, dass alle Einträge in der Datenbank, welche mit dem User in Verbindung gebracht werden können, nacheinander gelöscht werden.
+\newline
+Da dies ein bedeutender Auwand ist, welcher nicht von dieser IPA verlangt wird, werde ich dies nach der Abschlusspräsentation implementieren.
+\section{Modelauswahl}
+Es wurde schon bei Kapitel \ref{mck:index} auf die Abbildung \ref{fig:mck-index} eingegangen, dabei wurde jedoch ein Punkt bewusst weggelassen. Die Fläche, welche mit "Model selection" markiert ist, soll nicht einfach leer sein, sondern dem Nutzer das Navigieren der Modelle einfach zu machen.
+\newline
+Bei den Mockups wurde allerdings das ganze noch nicht verfeinert, da mögliche Lösungen zuerst evaluiert werden sollen. Momentan stehen zwei Möglichkeiten zur Auswahl bereit. Diese werden in den Kapiteln \ref{mdlauswl-a} und \ref{mdlauswl-b} beschrieben.
+\subsection{Auflistung mit Landesflaggen} \label{mdlauswl-a}
+Die initiale Idee der Modelauswahl war eine Auflistung der Modelle nach den Ländern. Damit ich dies im Frontend machen kann, muss ich zuerst im Controller der Modelle eine neue Route implementrieren, welche sie nach den Ländern geordnet zurücksendet.
+\newline
+Meiner Meinung nach ist diese Möglichkeit sehr simpel, was nicht negativ gemeint ist. Sollte ich merken, dass die andere Möglichkeit Probleme macht oder machen könnte, werde ich diese implementieren.
+\subsubsection{Pro}
+\begin{itemize}
+  \item Einfach zu implementieren
+  \item Erfüllt den Zweck
+  \item Lauft etwas schief, kann ich mir selbst weiterhelfen
+\end{itemize}
+\subsubsection{Kontra}
+\begin{itemize}
+  \item Eine dynamische Darstellung von Flaggen, in der Form von Bildern oder Emojis, könnte sich als schwieriger als Gedacht herausstellen
+  \item Schwierig schön darzustellen
+  \item Mehr Fleissarbeit um dies zu implementieren
+\end{itemize}
+\subsection{Interaktive Weltkarte} \label{mdlauswl-b}
+Eine Idee die von mir kommt, ist die Darstellung mit einer Weltkarte. Ich hatte diese Idee bevor die IPA begann und habe mich in der Freizeit weiter informiert. Zuerst dachte ich, ich könne eine Karte im SVG-Format nehmen und selbst eine solche React-Komponente erstellen. Schnell wurde klar, dass sich dies als sehr grosser Aufwand herausstellen würde. Dadurch begann ich mit der recherche nach Libraries von Dritten, welche sich diese mühe bereits gemacht haben. Somit stiess ich auf \href{https://www.react-simple-maps.io/}{\code{react-simple-maps}}.
+\newline
+Mit dieser Komponente ist es mir möglich, eine Weltkarte mit Markern darzustellen. Die Marker werden dabei mit Koordinaten gesetzt. Da ich bei der Registration die Koordinaten des Models erhalte, sollte dies kein Problem sein.
+\subsubsection{Pro}
+\begin{itemize}
+  \item Ohne Konfigurationen sieht diese Komponente schön aus
+  \item Weniger Fleissarbeit um dies zu implementieren
+\end{itemize}
+\subsubsection{Kontra}
+\begin{itemize}
+  \item Ich muss mich etwas in die Dokumentation einlesen
+  \item Lauft etwas schief, kann mir nur Google oder die Dokumentation weiterhelfen
+\end{itemize}
