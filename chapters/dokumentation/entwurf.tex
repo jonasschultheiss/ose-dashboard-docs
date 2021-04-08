@@ -194,3 +194,204 @@ Fehlerklassen sind folgenderweise definiert:
   \\\hline
   \end{tabularx}
 \end{table}
+\pagebreak
+\subsection{Test-Cases}
+\subsubsection{TC-01: Login}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-01 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & OSE Verantwortlicher kann sich anmelden \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Benutzer befindet sich auf der Startseite & / \\
+  1 & Benutzer klickt den Knopf "Sign in with Netilion" an & Client des Benutzers wird an Netilion ID weitergeleited \\
+  2 & Benutzer gibt seine Daten an und loggt sich ein & Client des Benutzers wird zurück an das OSE-Dashboard geleited \\
+  3A & Benutzer nicht registriert & Benutzer wird zur Registration weitergeleited \\
+  3B & Benutzer registriert & Benutzer wird zum Konfigurationsmenü weitergeleited \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsection{Test-Cases}
+\subsubsection{TC-02: Login falsche Logindaten}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-02 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Anmeldeprozess läuft schief, aber wird bei Netilion ID direkt behandelt \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Benutzer befindet sich auf der Startseite & / \\
+  1 & Benutzer klickt den Knopf "Sign in with Netilion" an & Client des Benutzers wird an Netilion ID weitergeleited \\
+  2 & Benutzer gibt seine Daten an und probiert sich anzumelden & Netilion ID zeigt Fehlermeldung an \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-03: Login mit unberechtigtem Account}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-03 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Anmeldeprozess funktioniert und Bentzer erhält passende Fehlermeldung \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Benutzer befindet sich auf der Startseite & / \\
+  1 & Benutzer klickt den Knopf "Sign in with Netilion" an & Client des Benutzers wird an Netilion ID weitergeleited \\
+  2 & Benutzer gibt seine Daten an und meldet sich an & Client des Benutzers wird zurück an das OSE-Dashboard geleited, wo eine passende Fehlermeldung angezeigt wird \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-04: Automatische Verlinkung der Assets}
+Dieser Test-Case wird zusätzlich mit automatisierten Tests abgedeckt.
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-04 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Assets und Meshes werden automatisch verlinkt \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Noch nicht registrierter Benutzer hat sich bereits angemeldet und befindet sich auf dem zweiten Tab der Registration & / \\
+  1 & Benutzer geht zum nächsten Tab & Client zeigt an, dass die Verlinkung im Gange ist und Backend verlinkt die Entitäten \\
+  2A & Alle Assets verlinkt & Benutzer wird benachrichtigt und kann sich ausloggen \\
+  2A & Nicht alle Assets verlinkt & Benutzer wird benachrichtigt und kann zum Konfigurationsmenü fortfahren \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-05: Konfigurationsmenü aufrufbar}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-05 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Konfigurationsmenü ist aufrufbar \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Bereits registrierter Benutzer befindet sich auf der Startseite  & / \\
+  1 & Benutzer meldet sich an & Client wird zum Konfigurationsmenü weitergeleited \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Noch nicht registrierter Benutzer befindet sich auf der Startseite  & / \\
+  1 & Benutzer meldet sich an & Client wird zur Registration weitergeleited \\
+  1 & Benutzer registriert sich & Client wird zum Konfigurationsmenü weitergeleited \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-06: Verlinkung manuell änderbar}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-06 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Assets und Meshes werden manuell verlinkt \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Bereits registrierter Benutzer befindet sich im Konfigurationsmenü im Assets Tab  & / \\
+  1 & Benutzer klickt auf eine Verlinkung & Verlinkungkomponente öffnet sich \\
+  2 & Benutzer klickt auf das Dropdown & Dropdown öffnet und stellt alle verfügbaren Assets dar \\
+  3 & Benutzer selektiert anderes Asset & Knopf "Logout" ändert sich zu "Save and logout" \\
+  4 & Benutzer klickt Knopf & Änderungen werden gespeichert, der Benutzer ausgeloggt und der Client wird an die Startseite weitergeleited \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-07: Übersicht aller Standorte}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-07 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Benutzer sieht übersicht aller Standorte \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Benutzer befindet sich auf der Startseite  & / \\
+  1 & Benutzer öffnet die Augen & Benutzer sieht auf der initialen Ansicht der Startseite die Standortauswahl \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\pagebreak
+\subsubsection{TC-08: Standort änderbar}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X}\hline \\
+  Name & TC-08 \\
+  Tester & Jonas Schultheiss \\
+  Erwartetes Resultat & Standort ist änderbar \\
+  Effektives Resultat & / \\
+  Fehlerklasse & / \\
+  Weiteres Vorgehen & / \\
+  Status & Noch nicht durchgeführt \\
+  \\\hline
+  \end{tabularx}
+\end{table}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X X}
+  \textbf{Schritt} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat}\\ \\\hline \\
+  0 & Bereits registrierter Benutzer befindet sich auf der Startseite  & / \\
+  1 & Benutzer meldet sich an & Benutzer wird angemeldet und zum Konfigurationsmenü weitergeleitet \\
+  2 & Benutzer klickt auf den Tab "Location" & Benutzer wird zu \code{/settings/location} weitergeleitet \\
+  3 & Benutzer gibt im Eingabefeld eine neue Addresse ein & Addresse wird automatisch vervollständigt \\
+  4 & Benutzer klickt auf den Knopf "Save changes and logout" & Änderungen werden gespeichert, der Benutzer ausgeloggt und der Client wird an die Startseite weitergeleited \\
+  \\\hline
+  \end{tabularx}
+\end{table}
