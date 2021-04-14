@@ -58,7 +58,7 @@ Ich habe Erfahrungen mit praktisch allen populären Node.js-Backendframeworks, k
 \newline
 NestJS geht komplett in eine andere Richtung. Es ist sehr inspiriert von Java Spring und Angular, ist extrem opinionated und das meiste kommt out of the box, ohne das man selber viele Konfigurationen machen muss.
 \subsubsection{Inspiration}
-Wie in Java Spring Boot gibt es Controller, Services, Repositories und Entitäten. Diese werden jeweils nur für eine Ressource erstellt. Mögliche Ressourcen sind zum Beispiel "Users" oder "Assets". Wie in Angular werden sie zu einem Modul gebündelt.
+Wie in Java Spring Boot gibt es Controller, Services, Repositories und Entitäten. Diese werden jeweils nur für eine Ressource erstellt. Mögliche Ressourcen sind zum Beispiel \amk{Users} oder \amk{Assets}. Wie in Angular werden sie zu einem Modul gebündelt.
 \subsubsection{Komponenten einer Nestjs Applikation}
 Nestjs ist highly opinionated. Dabei ist vordefiniert, wie der Code struckturiert ist. Entwickler sollten folgendem Schema folgen:
 \begin{table}[H]
@@ -94,7 +94,7 @@ Das Hosting wird mit Vercel gemacht. Vercel ist eine amerikanische Firma, die si
 Eines der Features, welches Next.js ausmacht, ist das Server-side-rendering, welches es out of the box anbietet. Dadurch kann man beim Entwickeln angeben, welche Seiten statisch und welche dynamisch sein sollen. So wird nicht nur die Erfahrung des Users besser, man steigert auch das SEO Ranking. Das Framework baut auf express auf. Dies ermöglicht es einem, ein minimales backend in das Frontend einzubauen. Die Vorteile davon sind, dass sensible Daten so nicht beim Benutzer landen.
 \section{Ist/Soll-Vergleich}
 Ein meiner Meinung nach wichtiger Teil der IPA ist der Vergleich zwischen dem momentan vorhandenen Stand und wie das fertige Produkt aussehen sollte. In den folgenden Kapiteln \ref{ist-zustand} und \ref{soll-zustand} gehe ich auf diese beiden Themen ein.
-\subsection{Istzustand} \label{ist-zustand}
+\subsection{Ist Zustand} \label{ist-zustand}
 \subsubsection{Modell}
 Bei der Erstellung der Vorarbeit war die Verwendung von mehreren Modellen nie ein Thema. Es sollte extra für Reinach angefertigt werden. Zu diesem Zeitpunkt wusste ich nicht einmal, dass die Endress+Hauser Gruppe noch mehr von ihnen besass, geschweige den, dass sie intern standardisiert wurde. Das heisst, dass immer die gleichen Messgeräte auf den Modellen sind.
 \newline
@@ -103,7 +103,7 @@ Da es sich nur um ein einziges Modell handelte, habe ich die IDs der digitalen Z
 Damit ich die Daten der Messgeräte erhalten konnte, musste ich geheime Zugangsdaten verwenden. Dies wurde von Anfang mit Environmentvariablen gelöst, da ich leider in der Vergangenheit schon einmal erfahren musste, was es heisst, die geheimen Zugangsdaten auf GitHub zu pushen. Anfangs wurde dies mit BasicAuth im Server-Side Teil von Nextjs erledigt. Später habe ich es dann allerdings ins Backend verschoben. Momentan verwendet das Projekt noch diesen statischen Lösungsweg mit BasicAuth.
 \subsubsection{Konfiguration}
 Da es sich nur um ein Modell handelte, habe ich gewünschte Konfigurationen entweder in Environmentvariablen gespeichert oder direkt in den Sourcecode geschrieben. Da es nun mehrere Modelle sind, muss ein Konfigurationsmenü her.
-\subsection{Sollzustand} \label{soll-zustand}
+\subsection{Soll Zustand} \label{soll-zustand}
 \subsubsection{Modelle}
 Es sollen nun mehrere Modelle eingebunden werden können und ein User soll zwischen den Standorten wechseln können. Dafür müssen neue Entitäten im Backend und neue Tabellen in der Datenbank angelegt werden. Einerseits soll eine \flqq models\frqq Tabelle her, welche die \flqq assets\frqq , also Messgeräte, bündelt. Andererseits muss auch der Standort des Modells abrufbar sein können, weswegen auch eine \flqq locations\frqq Tabelle erstellt werden sollte.
 \subsubsection{OAuth2}
@@ -118,7 +118,7 @@ In dieser Erweiterung ist es notwendig, dass sich mehrere Netilion-Accounts sich
 Damit der Verantwortliche eines OSE-Modells Einstellungen vornehmen kann, muss ein Konfigurationsmenü her. Ein Teil der IPA ist es, die digitalen Zwillinge automatisch mit den Meshes des 3D-Modells zu verlinken. Sollte dies aus irgendeinem Grund nicht möglich sein, soll der User dies selbst manuell verlinken können. Damit diese wichtige Einstellung aber nicht von jedem User vorgenommen werden kann, darf nur dies nur ein eingeloggter User, welcher sich in einer Usergroup befindet, vornehmen.
 \section{Namenskonzept}
 \subsection{User-Stories}
-\begin{table}[htp]
+\begin{table}[H]
   \begin{tabularx}{\textwidth}{l l X}\hline \\
   \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
   1 & US & Abkürzung für User-Story \\
@@ -128,7 +128,7 @@ Damit der Verantwortliche eines OSE-Modells Einstellungen vornehmen kann, muss e
   \end{tabularx}
 \end{table}
 \subsection{Akzeptanzkriterien}
-\begin{table}[htp]
+\begin{table}[H]
   \begin{tabularx}{\textwidth}{l l X}\hline \\
     \textbf{Segment} & \textbf{Abkürzung} & \textbf{Beschreibung} \\ \\\hline \\
     1 & AK & Abkürzung für Akzeptanzkriterium \\
