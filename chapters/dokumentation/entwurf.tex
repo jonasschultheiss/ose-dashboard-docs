@@ -45,7 +45,7 @@ Die zu erweiterbare Webapplikation ist in mehrere logische Schichten unterteilt.
   OSE & Daten der Messgeräte in der Anlage werden von einem Edge Device gesammelts und an Netilion gesendet \\
   Netilion & IIoT-Service von Endress+Hauser \\
   Backend & Backend des OSE Dashboards \\
-  here developer API & API Eines Drittanbieters. Wird verwendet für das Abfragen von Koordinaten oder Addressen und für die Darstellung der Karte. \\
+  HERE Developer API & API Eines Drittanbieters. Wird verwendet für das Abfragen von Koordinaten oder Addressen und für die Darstellung der Karte. \\
   Frontend & Frontend des OSE Dashboards \\
   \\\hline
   \end{tabularx}
@@ -181,7 +181,7 @@ Digitale Abbildung eines OSE Modelles
   \\\hline
   \end{tabularx}
 \end{table}
-\subsection{here developer API}
+\subsection{HERE Developer API}
 Diese API ermöglicht die Ortung der Modelle in diesem Projekt. Sie ermöglicht das Abfragen von Addressen und das rendern von Satelitenkarten. Um diese Daten abzufragen, wird allerdings ein ApiKey benötigt. Diese API soll nicht im Frontend abgefragt werden, da ansonsten dieser Key abgegriffen werden kann. Die beiden folgend beschriebenen API-Routen sollen daher über das Backend proxied werden, wo der APIKey im nachhinein der Anfrage beigefügt wird.
 \subsubsection{API Routes}
 \begin{table}[H]
