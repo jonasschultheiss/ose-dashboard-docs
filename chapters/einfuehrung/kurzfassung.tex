@@ -1,13 +1,20 @@
 \chapter*{Kurzfassung}
-\vspace{-3cm}
-\section*{Ausgangssituation}
+\vspace{-3.5cm}
+\section*{Kurze Ausgangssituation}
+\vspace{-0.2cm}
+Die Endress+Hauser Gruppe verwendet Austellungsmodelle, um verschiedene Messgeräte aus dem eigenen Produktportfolio an Messen oder anderen offiziellen Anlässen vorzustellen. Die Messdaten der an den Modellen gezeigten Geräte können von den Kunden mittels dem IIoT Angebot \amk{Netilion} angezeigt und ausgewertet werden.
+Ergänzend zu den durch Endress+Hauser angebotenen Standart Services, können Kunden zusätzlich eine Netilion Connect Subscription abschliessen. Eine solche Subscription erlaubt es dem Kunden auf die REST API der Netilion Cloud zuzugreifen, wodurch eigene Applikationen mit den Daten der Messgeräte erstellt werden können.
+Um den Kunden die Möglichkeiten der Netilion Connect Subscription zu zeigen, wurde das \amk{OSE-Dashboard} erstellt. Dieses zeigt eine 3D Ansicht eines Austellungsmodells, das mittels Kameraführung betrachtet werden kann. Um zusätzliche Informationen über das dargestellte Modell zu zeigen, kann man mit den einzelnen Messgeräten interagieren, um beispielsweise deren aktuellen Status anzuzeigen.
+Dieses Dashboard wurde statisch für ein bestimmtes Austellungsmodell in Reinach aufgebaut und ist nicht für andere Austellungsmodelle benutzbar. Damit entsteht die Problematik, dass bei Messen mit anderen Austellungsmodellen das Dashboard nicht gezeigt werden kann.
 
-\lipsum[2-4][12-18]
-
+\vspace{-0.3cm}
 \section*{Umsetzung}
+\vspace{-0.2cm}
 
-\lipsum[2-4][12-18]
+Um das Dashboard für alle weltweit verteilten Ausstellungsmodelle verwenden zu können, wurde mittels NextJS im Frontend und NestJS im Backend die Webapplikation erweitert. Zuerst wurden neue Entitäten in NestJS erstellt und bereits vorhandene angepasst. Anschliessend wurden die passenden Controller und Services erstellt, um dem Frontend eine Schnittstelle anbieten zu können. Dieses fragt Daten davon ab und visualisiert sie. Dadurch wurde eine Weltkarte, die Registrierung, das Konfigurationsmenü und die dynamische Darstellung des 3D Modells möglich.
 
+\vspace{-0.3cm}
 \section*{Ergebnis}
+\vspace{-0.2cm}
 
-\lipsum[2-4][12-18]
+Das Ergebnis ist ein erweitertes OSE Dashboard. Modellbetreiber auf der ganzen Welt können sich mittels OAuth2 anmelden und die eigenen Austellungsmodelle und deren Messgeräte erfassen. Somit kann das Dashboard dynamisch für alle Messen der Endress+Hauser Gruppe verwendet werden.

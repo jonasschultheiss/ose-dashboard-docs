@@ -1,11 +1,17 @@
 \input{./config}
 \addbibresource{quellen.bib}
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}} 
 
 \begin{document}
   \include{./chapters/title}
+  \frontmatter
+  \pagenumbering{Roman}
   \include{./chapters/einfuehrung/dokumentmanagement}
+  \include{./chapters/einfuehrung/danksagung}
   \include{./chapters/einfuehrung/kurzfassung}
-  \tableofcontents\thispagestyle{fancy}
+  \tableofcontents
+  \mainmatter
+  \pagestyle{fancy}
   \part{Obligatorische Kapitel}
   \input{chapters/obligatorisch/obligatorisch}
   \part{Dokumentation}

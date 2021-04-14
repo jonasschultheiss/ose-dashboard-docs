@@ -19,7 +19,7 @@
 
 \documentclass[10pt, oneside]{scrbook}
 
-\newcommand{\version}{0.2.0}
+\newcommand{\version}{0.5.2}
 \newcommand{\docdate}{\today}
 \newcommand{\docname}{OSE Dashboard}
 \newcommand{\compiledfilename}{ipa\_jsc\_ose\_2021.pdf}
@@ -75,6 +75,7 @@
 \usepackage{afterpage}
 \usepackage[backend=biber, style=numeric]{biblatex}
 \usepackage{suffix}
+\usepackage{ragged2e}
 \usepackage{float}
 
 %%%%%%%%
@@ -182,3 +183,5 @@
 \newcommand{\titlesize}{\fontsize{25pt}{20pt}\selectfont}
 \newcommand{\subtitlesize}{\fontsize{15pt}{10pt}\selectfont}
 \newcommand{\subsubtitlesize}{\fontsize{10pt}{5pt}\selectfont}
+
+\newcommand{\amk}[1]{\flqq #1\frqq}

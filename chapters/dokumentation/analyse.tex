@@ -8,9 +8,10 @@
   \caption[Eine von mir mit Lucidchart erstellte grobe Systemarchitektur]{Grobe Systemarchitektur}
   \label{fig:systemarchitektur}
 \end{figure}
-Das System des OSE-Dashboards besteht aktuell aus vier essenziellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose}, \ref{arch-netilion}, \ref{arch-backend} und \ref{arch-frontend} erläutert.
+\cite{flaticon}
+Das System des OSE-Dashboards besteht aktuell aus fünf essenziellen Teilen. Die Systemteile werden in den nachfolgenden Kapiteln \ref{arch-ose} bis \ref{arch-frontend} erläutert.
 \subsection{One Story Exhibit} \label{arch-ose}
-Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In diesem Projekt sind dies Ausstellungsmodelle von Endress+Hauser selbst. Die Gruppe verwendet diese an Messen oder in Verkaufsstellen, um den Kunden unser umfassendes Portfolio an Messgeräten näher zu bringen. Diese Applikation soll diesem Prozess helfen und zeigen, was mit unserem IIoT-Angebot möglich ist.
+In diesem Projekt sollen die Anlagedaten der Endress+Hauser Ausstellungsmodelle von der Applikation ausgewertet werden. Endress+Hauser verwendet diese Modelle an Messen oder lokalen Vertriebsorganisationen, um den Kunden das umfassende Portfolio an Messgeräten näher zu bringen. Diese Applikation soll unterstützend demonstrieren, was mit dem IIoT Service \amk{Netilion} für Kunden möglich ist.
 \subsection{Netilion} \label{arch-netilion}
 \begin{figure}[!ht]
   \centering
@@ -18,27 +19,35 @@ Die Anlage/-n deren Daten von der Applikation ausgewertet werden sollen. In dies
   \caption[{Diagramm Netilion Ökosystem von Jonas Schultheiss}]{Netilion Ökosystem}
   \label{fig:netilion}
 \end{figure}
-Netilion ist das IIoT Angebot welches vor einigen Jahren von der Endress+Hauser Digital Solutions ins Leben gerufen wurde. Zuvor hatten Kunden keinen direkten Einblick in die genauen Daten der Messgeräte. Techniker mussten regelmässig vorbei kommen und die Geräte prüfen, auch wenn es noch optimal lief. Nun ist die ganze Anlage des Kunden ans Internet gebunden, was die Möglichkeiten praktisch grenzenlos macht.
+Netilion ist das IIoT Ökosystem welches vor einigen Jahren von der Endress+Hauser Digital Solutions ins Leben gerufen wurde. Zuvor hatten Kunden keinen direkten Einblick in die Daten der Messgeräte. Techniker mussten regelmässig vorbei kommen und die Geräte prüfen, auch wenn diese funktionierten. Wenn die Anlage des Kunden an das Internet angebunden ist, erschlissen sich neue Informationsmöglichkeiten über die eingebauten Messgeräte. Genau das ist der Punkt, an dem Netilion mit seinen digitalen Services für den Kunden Mehrwerte liefert.
 \newline
-Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert. In Intervallen sendet es diese dann an die REST-API von Netilion. Da werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine unseren Webapplikationen öffnen und die verarbeiteten Daten grafisch aufbereitet ansehen.
+Die Daten der Messgeräte werden mithilfe eines Edge Devices ausgelesen und zuerst lokal gespeichert, bevor sie dann in regelmässigen Intervallen an die REST-API von Netilion gesendet werden. Dort werden sie vom Hub empfangen, validiert und serialisiert. Anschliessend kann der Kunde eine der digitalen Services nutzen und die verarbeiteten Daten grafisch aufbereitet ansehen.
 \subsubsection{Hub}
-Der Hub ist das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST-API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert das Ganze in einer Datenbank.
-\subsubsection{Standard Services}
-Die Standard Services sind Webapplikationen, welche die Daten der Anlage entgegennehmen, passend darstellt und mit anderen Daten integriert. So zeigt zum Beispiel die Applikation \textit{Health} die NE107 Status der einzelnen Geräte an. \textit{Value} hingegen stellt unter anderem die Messwerte der Geräte dar. Diese Services sind das Herz des IIoT-Angebotes. Sie sollen dem Kunden kosten sparen und Prozesse vereinfachen. 
+Der Hub ist das zentrale Lager aller Daten, welche im Ökosystem verwendet werden. Er bietet die REST-API an, validiert Daten, regelt das Benutzer- und Zugriffssystem und speichert alles in einer Datenbank.
+\subsubsection{Digitalen Services}
+Die Digitalen Services sind Webapplikationen, welche die Daten der Anlage entgegennehmen, aufbereiten und mit anderen Daten integrieren. So zeigt zum Beispiel die Applikation \amk{Health} die NE107 Status der einzelnen Geräte an. \amk{Value} hingegen stellt unter anderem die Messwerte der Geräte dar. Daneben gibt es noch weitere Services wie in Abbildung \ref{fig:netilion} genannt.
+
+
+Ziel ist es mit den digitalen Services den Kunden zu helfen Ihre Anlagenverfügbarkeit zu erhöhen, Prozesse zu verinfachen und damit Kosten zu sparen.
 \subsubsection{Connect}
 Netilion Connect ist ein neues Angebot des Ökosystems. Grosse Kunden wollen entweder eigene eingekaufte oder von Ihren Entwickler hergestellte Systeme verwenden. Deshalb sollten sie auch ausserhalb unserer Applikation an ihre Daten kommen können. So ergibt sich zum Beispiel die Möglichkeit, ein Dashboard mit den Firmen Guidelines zu erstellen.
+\subsection{here developer API}
+Als Vorarbeit dieser Arbeit wurde recherchiert, wie die Ortung der Modelle implementiert werden kann. Die erste option war Google Maps. Dies stellte sich allerdings als zu aufwändig heraus. Daher wurde nach alternativen gesucht. Mit der \amk{here developer API} wurde diese schlussendlich gefunden.
+\newline
+Die Ortungsdaten sollen im Backend mit den Daten der Messgeräte von Netilion integriert.
 \subsection{OSE-Dashboard: Backend} \label{arch-backend}
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=.95\linewidth]{./images/backend.png}
   \caption[{Diagramm OSE-Dashboard Backend von Jonas Schultheiss}]{OSE-Dashboard Backend}
   \label{fig:backend}
 \end{figure}
 Die Aufgabe des Backends war primär das Cachen der Daten. Ohne Caching würde jede Instanz des Frontends direkt Anfragen an Netilion gesendet. Auch wenn ein Client nur alle 30 Minuten die Daten aktualisiert, wir wissen trotzdem nicht, auf wie vielen Clients unser Frontend gerade aktiv ist. Das Abonnement der REST-API besitzt eine maximale Zahl an Anfragen, welche gemacht werden können, bevor auf die nächste teurere Stufe aufgerüstet werden muss. Diese Nummer nicht zu über- schreiten war ein Kriterium des Product-Owners. Da dies schwierig abzuschätzen oder auszurechnen ist mit einer unbekannten Zahl, wurde das Backend erstellt.
-\newline
+
+
 Ein eigenes Backend zu erstellen hat den Vorteil, dass wir zusätzliche Daten anfordern können und diese direkt mit den Netilion-Daten verlinken/integrieren können.
-\newline
-\newline
+
+
 Kurz vor der IPA hat das Team, welches hinter der Entwicklung von Netilion steht, angekündigt, dass Webhooks nun in der Produktion verfügbar sind. Mithilfe von Webhooks kann ein Client einzelne Events abonnieren und erhält direkt Bescheid, wenn sich ein Wert ändert. Mit diesen Webhooks müsste ich keine Intervalle/Cron-Jobs verwenden müssen, wodurch die Anzahl der Anfragen deutlich vermindert werden würde.
 \newline
 Auch wenn ein Lösungsansatz mit Webhooks optimaler wäre, habe ich mich dagegen entschieden, es an dieser IPA so zu lösen. Das Feature wurde kurz vor der IPA angekündigt und ich habe bisher keine theoretische oder praktische Erfahrung mit Webhooks. Gerne werde ich es nach dem Abschluss der IPA angehen.
@@ -50,6 +59,19 @@ Ich habe Erfahrungen mit praktisch allen populären Node.js-Backendframeworks, k
 NestJS geht komplett in eine andere Richtung. Es ist sehr inspiriert von Java Spring und Angular, ist extrem opinionated und das meiste kommt out of the box, ohne das man selber viele Konfigurationen machen muss.
 \subsubsection{Inspiration}
 Wie in Java Spring Boot gibt es Controller, Services, Repositories und Entitäten. Diese werden jeweils nur für eine Ressource erstellt. Mögliche Ressourcen sind zum Beispiel "Users" oder "Assets". Wie in Angular werden sie zu einem Modul gebündelt.
+\subsubsection{Komponenten einer Nestjs Applikation}
+Nestjs ist highly opinionated. Dabei ist vordefiniert, wie der Code struckturiert ist. Entwickler sollten folgendem Schema folgen:
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l X }
+  \textbf{Komponente} & \textbf{Beschreibung} \\ \\\hline \\
+  Entity & Enthält die Entität, welche vom ORM verwendet wird und als Basisklasse dient\\
+  Repository & Erledigt alle direkten Interaktionen mit den Entitäten \\
+  Service & Handhabt die Geschäftslogik \\
+  Controller & Dient dazu, Anfragen entgegenzunehmen, validieren und den verantwortlichen Service aufzurufen \\
+  Module & Bündelt die Komponenten einer Funktion oder Resource, reguliert Imports von anderen Services und Exports von eigenen Services \\
+  \\\hline
+  \end{tabularx}
+\end{table}
 \subsubsection{Redis \& Postgresql}
 Ich habe mich bei temporärem Caching für Redis entschieden, da ich keine Alternative dazu kenne und da es auch sonst intern verwendet wird. PostgreSQL habe ich genommen, da Netilion und das dahinterstehende Team dies nutzt
 \subsubsection{Hosting}
@@ -73,17 +95,17 @@ Eines der Features, welches Next.js ausmacht, ist das Server-side-rendering, wel
 \section{Ist/Soll-Vergleich}
 Ein meiner Meinung nach wichtiger Teil der IPA ist der Vergleich zwischen dem momentan vorhandenen Stand und wie das fertige Produkt aussehen sollte. In den folgenden Kapiteln \ref{ist-zustand} und \ref{soll-zustand} gehe ich auf diese beiden Themen ein.
 \subsection{Istzustand} \label{ist-zustand}
-\subsubsection{Model}
+\subsubsection{Modell}
 Bei der Erstellung der Vorarbeit war die Verwendung von mehreren Modellen nie ein Thema. Es sollte extra für Reinach angefertigt werden. Zu diesem Zeitpunkt wusste ich nicht einmal, dass die Endress+Hauser Gruppe noch mehr von ihnen besass, geschweige den, dass sie intern standardisiert wurde. Das heisst, dass immer die gleichen Messgeräte auf den Modellen sind.
 \newline
-Da es sich nur um ein einziges Model handelte, habe ich die IDs der digitalen Zwillinge der Messgeräte per Hand herausgesucht und dann statisch in den Quellcode geschrieben. Dies war der einfachste Weg, um das Projekt wie gewünscht umzusetzen. Es gab mir zu diesem Zeitpunkt auch keinen Sinn, das Ganze dynamisch zu gestalten.
+Da es sich nur um ein einziges Modell handelte, habe ich die IDs der digitalen Zwillinge der Messgeräte per Hand herausgesucht und dann statisch in den Quellcode geschrieben. Dies war der einfachste Weg, um das Projekt wie gewünscht umzusetzen. Es gab mir zu diesem Zeitpunkt auch keinen Sinn, das Ganze dynamisch zu gestalten.
 \subsubsection{Credentials}
 Damit ich die Daten der Messgeräte erhalten konnte, musste ich geheime Zugangsdaten verwenden. Dies wurde von Anfang mit Environmentvariablen gelöst, da ich leider in der Vergangenheit schon einmal erfahren musste, was es heisst, die geheimen Zugangsdaten auf GitHub zu pushen. Anfangs wurde dies mit BasicAuth im Server-Side Teil von Nextjs erledigt. Später habe ich es dann allerdings ins Backend verschoben. Momentan verwendet das Projekt noch diesen statischen Lösungsweg mit BasicAuth.
 \subsubsection{Konfiguration}
-Da es sich nur um ein Model handelte, habe ich gewünschte Konfigurationen entweder in Environmentvariablen gespeichert oder direkt in den Sourcecode geschrieben. Da es nun mehrere Modelle sind, muss ein Konfigurationsmenü her.
+Da es sich nur um ein Modell handelte, habe ich gewünschte Konfigurationen entweder in Environmentvariablen gespeichert oder direkt in den Sourcecode geschrieben. Da es nun mehrere Modelle sind, muss ein Konfigurationsmenü her.
 \subsection{Sollzustand} \label{soll-zustand}
 \subsubsection{Modelle}
-Es sollen nun mehrere Modelle eingebunden werden können und ein User soll zwischen den Standorten wechseln können. Dafür müssen neue Entitäten im Backend und neue Tabellen in der Datenbank angelegt werden. Einerseits soll eine \flqq models\frqq Tabelle her, welche die \flqq assets\frqq , also Messgeräte, bündelt. Andererseits muss auch der Standort des Models abrufbar sein können, weswegen auch eine \flqq locations\frqq Tabelle erstellt werden sollte.
+Es sollen nun mehrere Modelle eingebunden werden können und ein User soll zwischen den Standorten wechseln können. Dafür müssen neue Entitäten im Backend und neue Tabellen in der Datenbank angelegt werden. Einerseits soll eine \flqq models\frqq Tabelle her, welche die \flqq assets\frqq , also Messgeräte, bündelt. Andererseits muss auch der Standort des Modells abrufbar sein können, weswegen auch eine \flqq locations\frqq Tabelle erstellt werden sollte.
 \subsubsection{OAuth2}
 In dieser Erweiterung ist es notwendig, dass sich mehrere Netilion-Accounts sicher anmelden können. Ich habe mich in der Vergangenheit sehr intensiv mit OAuth2 beschäftigt und finde, dass ich es optimal für diesen Use-Case umsetzten kann. Sprechen wir allerdings über die Entscheidung, wieso OAuth2 verwendet werden sollte und nicht einfach das bestehende BasicAuth Konstrukt erweitert werden sollte.
 \begin{itemize}
@@ -93,7 +115,7 @@ In dieser Erweiterung ist es notwendig, dass sich mehrere Netilion-Accounts sich
   \item Die Lösung ist optimaler und schöner
 \end{itemize}
 \subsubsection{Konfigurationsmenü}
-Damit der Verantwortliche eines OSE-Models Einstellungen vornehmen kann, muss ein Konfigurationsmenü her. Ein Teil der IPA ist es, die digitalen Zwillinge automatisch mit den Meshes des 3D-Models zu verlinken. Sollte dies aus irgendeinem Grund nicht möglich sein, soll der User dies selbst manuell verlinken können. Damit diese wichtige Einstellung aber nicht von jedem User vorgenommen werden kann, darf nur dies nur ein eingeloggter User, welcher sich in einer Usergroup befindet, vornehmen.
+Damit der Verantwortliche eines OSE-Modells Einstellungen vornehmen kann, muss ein Konfigurationsmenü her. Ein Teil der IPA ist es, die digitalen Zwillinge automatisch mit den Meshes des 3D-Modells zu verlinken. Sollte dies aus irgendeinem Grund nicht möglich sein, soll der User dies selbst manuell verlinken können. Damit diese wichtige Einstellung aber nicht von jedem User vorgenommen werden kann, darf nur dies nur ein eingeloggter User, welcher sich in einer Usergroup befindet, vornehmen.
 \section{Namenskonzept}
 \subsection{User-Stories}
 \begin{table}[htp]
@@ -199,16 +221,16 @@ Die interne SSD des MacBooks \cite{a2021_hardware} und die externe SSD \cite{a20
   \label{fig:personas}
 \end{figure}
 \subsection{Endnutzer}
-Der Endnutzer ist schlussendlich der Besucher, welcher am Fernseher mit dem Dashboard interagiert. Er möchte möglich einfach die Daten des OSE-Models ansehen können, ohne sich dabei einloggen zu müssen.
+Der Endnutzer ist schlussendlich der Besucher, welcher am Fernseher mit dem Dashboard interagiert. Er möchte möglich einfach die Daten des OSE-Modells ansehen können, ohne sich dabei einloggen zu müssen.
 \subsection{MVT}
 Das MVT Team ist für interne und externe Trainings unseres Portfolios zuständig. Markus Reisgis von MVT war der originale Auftraggeber. Für sie ist wichtig, dass alle gewünschten Daten korrekt angezeigt werden und das der Endnutzer eine gute Erfahrung macht.
 \subsection{OSE Verantwortlicher}
-Der OSE Verantwortliche ist die Person, welche für ein Model verantwortlich ist. Dies ist zum Beispiel MVT in Reinach. Es gibt einige Weitere in Deutschland, Frankreich und so weiter. Für sie ist wichtig, dass sie wenig Mehraufwand haben. Im optimalen Fall sollte Log-in und die eventuelle Konfiguration möglichts einfach und fehlerfrei ablaufen.
+Der OSE Verantwortliche ist die Person, welche für ein Modell verantwortlich ist. Dies ist zum Beispiel MVT in Reinach. Es gibt einige Weitere in Deutschland, Frankreich und so weiter. Für sie ist wichtig, dass sie wenig Mehraufwand haben. Im optimalen Fall sollte Log-in und die eventuelle Konfiguration möglichts einfach und fehlerfrei ablaufen.
 \subsection{Entwickler}
 Der Entwickler bin ich. Mir ist es wichtig, alle gewünschten Features kompetent und wie gewünscht umzusetzen, und dabei den Fortschritt korrekt zu dokumentieren.
 \section{User Stories}
 \subsection{US-01}
-Als OSE Verantwortlicher möchte ich mich einloggen können, damit ich mein Model registrieren kann.
+Als OSE Verantwortlicher möchte ich mich einloggen können, damit ich mein Modell registrieren kann.
 \begin{itemize}
   \item AK-01 Log-in möglich
   \item AK-02 Log-in Daten sind geschützt und nicht von einem Benutzer auslesbar
@@ -276,18 +298,18 @@ Folgend ist eine Auflistung der einzelnen Schritte, welche in der Abbildung \ref
   \item Existiert der User, wird dieser aus der Datenbank gelesen. Existiert er nicht, wird ein neuer erstellt.
   \item Der User wird als JWT zurück ans Frontend geschickt.
   \item Das Frontend zeigt an, dass die Anmeldung erfolgreich verlief.
-  \item Wenn das Model noch nicht registriert wurde oder die Messgeräte noch nicht verlinkt wurden, wird der User nach zusätzlichen Daten wie dem Standort gefragt.
+  \item Wenn das Modell noch nicht registriert wurde oder die Messgeräte noch nicht verlinkt wurden, wird der User nach zusätzlichen Daten wie dem Standort gefragt.
   \item Das Frontend schickt diese Daten mit dem JWT an das Backend.
-  \item Das Backend erstellt ein neues Model mit den Daten des Users.
+  \item Das Backend erstellt ein neues Modell mit den Daten des Users.
   \item Anschliessend fragt es bei Netilion nach allen Messgeräten nach.
   \item Netilion antwortet mit allen Messgeräten des Users.
   \item Daraufhin erfolgt die automatische Verlinkung.
-  \item Das Model mitsamt verlinkten Messgeräten wird ans Frontend weitergeleitet.
+  \item Das Modell mitsamt verlinkten Messgeräten wird ans Frontend weitergeleitet.
   \item Stimmt die Verlinkung ist der Nutzer zufrieden und der Prozess beendet.
   \item Stimmt die Verlinkung nicht, da der Nutzer nicht die standardisierten Geräte oder benennungen verwendet, wird ihm das Resultat angezeigt.
   \item Daraufhin verlinkt der User selbst die Geräte.
   \item Dies wird ans Backend gesendet, damit die Änderungen gespeichert werden können.
   \item Die gespeicherten Änderungen werden an das Frontend geschickt.
   \item Der User wird benachrichtigt, dass seine Änderungen übernommen wurden. Der User ist zufrieden und der Prozess beendet.
-  \item Ist das Model bereits registriert und die Messgeräte verlinkt, ist der Prozess beendet.
+  \item Ist das Modell bereits registriert und die Messgeräte verlinkt, ist der Prozess beendet.
 \end{enumerate}

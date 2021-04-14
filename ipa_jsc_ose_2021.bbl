@@ -52,6 +52,63 @@
       \verb https://support.apple.com/de-ch/HT201250
       \endverb
     \endentry
+    \entry{atlassian_2021_user}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a8fd8cd0b6d2cfda939a8ef257e60192}{%
+           family={Atlassian},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Atlassian}%
+      }
+      \strng{namehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{fullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{bibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authorbibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authornamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authorfullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{User Storys | Beispiele und Vorlage | Atlassian}
+      \field{urlday}{8}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.atlassian.com/de/agile/project-management/user-stories
+      \endverb
+      \verb{url}
+      \verb https://www.atlassian.com/de/agile/project-management/user-stories
+      \endverb
+    \endentry
+    \entry{auth0.com}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=62afffeb646f9cc48209984f1173b2a1}{%
+           family={auth0.com},
+           familyi={a\bibinitperiod}}}%
+      }
+      \strng{namehash}{62afffeb646f9cc48209984f1173b2a1}
+      \strng{fullhash}{62afffeb646f9cc48209984f1173b2a1}
+      \strng{bibnamehash}{62afffeb646f9cc48209984f1173b2a1}
+      \strng{authorbibnamehash}{62afffeb646f9cc48209984f1173b2a1}
+      \strng{authornamehash}{62afffeb646f9cc48209984f1173b2a1}
+      \strng{authorfullhash}{62afffeb646f9cc48209984f1173b2a1}
+      \field{sortinit}{a}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Auth0}
+      \field{title}{JSON Web Tokens - Jwt.io}
+      \verb{urlraw}
+      \verb https://jwt.io/
+      \endverb
+      \verb{url}
+      \verb https://jwt.io/
+      \endverb
+    \endentry
     \entry{a2021_documentation}{online}{}
       \list{organization}{1}{%
         {Documentation | NestJS - A progressive Node.js framework}%
@@ -72,7 +129,7 @@
       \verb https://docs.nestjs.com/techniques/task-scheduling
       \endverb
     \endentry
-    \entry{nest_guards}{misc}{}
+    \entry{nest_guards}{online}{}
       \list{organization}{1}{%
         {Documentation | NestJS - A progressive Node.js framework}%
       }
@@ -90,6 +147,38 @@
       \endverb
       \verb{url}
       \verb https://docs.nestjs.com/guards
+      \endverb
+    \endentry
+    \entry{flaticon}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d02458fb7a63c45ded481782a9b9db80}{%
+           family={flaticon},
+           familyi={f\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {flaticon}%
+      }
+      \strng{namehash}{d02458fb7a63c45ded481782a9b9db80}
+      \strng{fullhash}{d02458fb7a63c45ded481782a9b9db80}
+      \strng{bibnamehash}{d02458fb7a63c45ded481782a9b9db80}
+      \strng{authorbibnamehash}{d02458fb7a63c45ded481782a9b9db80}
+      \strng{authornamehash}{d02458fb7a63c45ded481782a9b9db80}
+      \strng{authorfullhash}{d02458fb7a63c45ded481782a9b9db80}
+      \field{sortinit}{f}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{User Storys | Beispiele und Vorlage | Atlassian}
+      \field{urlday}{8}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.flaticon.com/free-icon/map_854878
+      \endverb
+      \verb{url}
+      \verb https://www.flaticon.com/free-icon/map_854878
       \endverb
     \endentry
     \entry{a2021_hardware}{online}{}
